@@ -1,0 +1,92 @@
+/* Slide-in animation for h1 */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Left to Right movement */
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(10px);
+    }
+}
+
+/* Right to Left movement */
+@keyframes moveRightLeft {
+    0% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
+/* Up to Down movement */
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+/* Down to Up movement */
+@keyframes moveDownUp {
+    0% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Apply to collection div - animation for left-right and up-down movement */
+.collection {
+    width: 150px;
+    height: 150px;
+    /* border: 4px solid #4CAF50;
+    border-radius: 10px; */
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.collection:nth-child(odd) {
+    animation-name: moveLeftRight;
+}
+
+.collection:nth-child(even) {
+    animation-name: moveRightLeft;
+}
+
+.collection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect to scale the box */
+.collection:hover {
+    transform: scale(1.1);
+}
+
+
+
