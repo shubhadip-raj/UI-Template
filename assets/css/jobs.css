@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.browse-jobs-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.image-slider {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    width: 250px;
+    margin-left: 10px;
+    padding-top: 0px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+    background: #fff;
+}
+
+.card img {
+    width: 30%;
+    height: 40%;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.card-title {
+    margin-top: 50px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.card-subtitle {
+    color: gray;
+}
