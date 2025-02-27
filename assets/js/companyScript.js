@@ -6,7 +6,7 @@ const row2 = document.getElementById('row2');
 // Simulate fetching company logos from an API
 async function fetchImages() {
     try {
-        const response = await fetch('http://localhost:8082/api/jobbox/companylogos'); // Replace with your actual API endpoint
+        const response = await fetch(`${CONFIG.API_URL}/companylogos`); // Replace with your actual API endpoint
         const data = await response.json();
 
         // Convert the response data into an array of image objects
@@ -92,12 +92,15 @@ async function handleImageClick(imageSrc) {
 
     // Simulate fetching company details by ID
     try {
-        const response = await fetch(`http://localhost:8082/api/jobbox/displayCompanyById?companyId=${key}`); // Replace with actual API
+        const response = await fetch(`${CONFIG.API_URL}/displayCompanyById?companyId=${key}`); // Replace with actual API
         const company = await response.json();
 
         if (company) {
             const encodedCompanyName = encodeURIComponent(company.companyName);
-            window.location.href = `https://app.jobbox.one/companyPage/companyName/${encodedCompanyName}`; // Navigate to the company page
+            const companyUrl = `https://app.jobbox.one/companyPage/companyName/${encodedCompanyName}`;
+            
+            // Open in a new tab
+            window.open(companyUrl, "_blank", "noopener,noreferrer"); // Navigate to the company page
         } else {
             console.error("Company not found!");
         }
