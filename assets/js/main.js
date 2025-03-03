@@ -73,6 +73,7 @@
     });
   });
 
+  
   // ===== Faq accordion
   const faqs = document.querySelectorAll(".single-faq");
   faqs.forEach((el) => {
