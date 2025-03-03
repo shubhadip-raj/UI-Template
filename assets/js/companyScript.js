@@ -1,5 +1,5 @@
-const images = [];
-const imageKeys = {};
+const images = [];  // Array to hold image objects
+const imageKeys = {};  // Object to hold image src to ID mapping
 const row1 = document.getElementById('row1');
 const row2 = document.getElementById('row2');
 
@@ -15,12 +15,12 @@ async function fetchImages() {
                 id: parseInt(id, 10),
                 src: `data:image/jpeg;base64,${imageData}`
             };
-            images.push(imgObj);
-            imageKeys[imgObj.src] = imgObj.id;
+            images.push(imgObj);  // Populate the images array
+            imageKeys[imgObj.src] = imgObj.id;  // Populate the imageKeys object
         });
 
-        // Split the images into two rows and display
-        displayImages();
+        // Now, call displayImages to display the images
+        displayImages();  // No need to pass images as it's already populated globally
     } catch (error) {
         console.error('Error fetching images:', error);
     }
@@ -88,7 +88,7 @@ function createImageDiv(src, index) {
 
 // Handle click event to navigate to company detail page
 async function handleImageClick(imageSrc) {
-    const key = imageKeys[imageSrc];
+    const key = imageKeys[imageSrc];  // Get company ID from imageSrc
 
     // Simulate fetching company details by ID
     try {
@@ -110,4 +110,4 @@ async function handleImageClick(imageSrc) {
 }
 
 // Call fetchImages on page load
-fetchImages();
+fetchImages();  // Trigger image fetching and displaying
