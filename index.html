@@ -1054,42 +1054,48 @@
     <!-- ====== Jobs Section Start -->
 
     <!-- Recent Jobs Section -->
-    <section id="jobs"
-      class="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
-      <div class="container mx-auto">
-        <div class="-mx-4 flex flex-wrap">
-          <div class="w-full px-4">
-            <div class="mx-auto mb-[60px] max-w-[510px] text-center">
-              <h2
-                class="mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
-                Recent Jobs
-              </h2>
-              <h3>
-                <a href="https://app.jobbox.one/browse-jobs" target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white hover:border-blue-dark hover:bg-blue-dark">
-                  View more Jobs</a>
-              </h3>
-              <p class="text-base text-body-color dark:text-dark-6">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
-              </p>
-            </div>
-          </div>
+    <!-- Recent Jobs Section -->
+<section id="jobs" class="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
+  <div class="container mx-auto">
+    <div class="-mx-4 flex flex-wrap">
+      <div class="w-full px-4">
+        <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+          <h2 class="mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
+            Recent Jobs
+          </h2>
+          <h3>
+            <a href="https://app.jobbox.one/browse-jobs" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white hover:border-blue-dark hover:bg-blue-dark">
+              View more Jobs</a>
+          </h3>
+          <p class="text-base text-body-color dark:text-dark-6">
+            There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.
+          </p>
         </div>
       </div>
-      <!-- Jobs Listing -->
-      <div class="browse-jobs-container">
-        <div class="image-slider" id="latest-jobs-container">
-          <!-- Jobs will be inserted here dynamically -->
-        </div>
-      </div>
+    </div>
+  </div>
 
-      <h1 id="no-jobs" class="text-center"
-        style="color: red; display: none;">No jobs found</h1>
-    </section>
+  <!-- Jobs Listing -->
+  <div class="browse-jobs-container">
+    <div class="image-slider" id="latest-jobs-container">
+      <!-- Jobs will be inserted here dynamically -->
+    </div>
+  </div>
 
-    <script src="/assets/js/jobscript.js"></script>
+  <!-- No jobs message -->
+  <h1 id="no-jobs" class="text-center" style="color: red; display: none;">No jobs found</h1>
+
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="text-center" style="display: none;">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/jobscript.js"></script>
+
 
     <!-- ====== jobs Section End -->
 
