@@ -18,6 +18,7 @@ function calculateDaysAgo(postingDate) {
 async function fetchCompanyLogo(companyName) {
     try {
         const response = await fetch(`${CONFIG.API_URL}/logo?companyName=${encodeURIComponent(companyName)}`);
+        
         if (!response.ok) throw new Error("Failed to fetch logo");
 
         const arrayBuffer = await response.arrayBuffer();

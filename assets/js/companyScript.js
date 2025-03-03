@@ -8,7 +8,7 @@ async function fetchImages() {
     try {
         const response = await fetch(`${CONFIG.API_URL}/companylogos`); // Replace with your actual API endpoint
         const data = await response.json();
-
+        console.log(data); // Log the data to inspect it
         // Convert the response data into an array of image objects
         Object.entries(data).forEach(([id, imageData]) => {
             const imgObj = {

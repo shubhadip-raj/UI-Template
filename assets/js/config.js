@@ -7,5 +7,10 @@ const CONFIG = {
   };
   
   // Auto-select API based on window location
-  CONFIG.API_URL = window.location.hostname === "127.0.0.1" ? CONFIG.LOCAL_API_URL : CONFIG.LIVE_API_URL;
+// Improved API selection logic
+if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    CONFIG.API_URL = CONFIG.LOCAL_API_URL;
+} else {
+    CONFIG.API_URL = CONFIG.LIVE_API_URL;
+}
   
