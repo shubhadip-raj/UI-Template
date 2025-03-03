@@ -53,7 +53,7 @@ async function displayLatestJobs(jobs) {
             <img src="${logoUrl}" alt="${job.companyName} logo">
             <div class="card-title">${job.jobTitle}</div>
             <div class="card-subtitle">${job.companyName}</div>
-            <div>${calculateDaysAgo(job.postingDate)}</div>
+            <div class="card-subtitle">${calculateDaysAgo(job.postingDate)}</div>
         `;
 
         jobCard.addEventListener("click", () => {
