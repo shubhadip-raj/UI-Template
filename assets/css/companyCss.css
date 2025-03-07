@@ -55,10 +55,7 @@
 
 /* Apply to collection div - animation for left-right and up-down movement */
 .collection {
-    width: 150px;
-    height: 150px;
-    /* border: 4px solid #4CAF50;
-    border-radius: 10px; */
+
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -66,6 +63,13 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    width: auto; /* Auto width instead of full width */
+    height: auto; /* Auto height */
+    max-width: 120px; /* Adjust size as needed */
+    max-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .collection:nth-child(odd) {
@@ -79,8 +83,8 @@
 .collection img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     transition: transform 0.3s ease;
+    object-fit: contain; 
 }
 
 /* Hover effect to scale the box */
@@ -89,4 +93,10 @@
 }
 
 
-
+#image-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows images to wrap to the next row if necessary */
+    justify-content: center; /* Centers images horizontally */
+    gap: 16px; /* Adjust spacing between images */
+    padding: 20px;
+}
