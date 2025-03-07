@@ -26,6 +26,7 @@
       src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
     <!-- ==== WOW JS ==== -->
     <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/chechLogin.js"></script>
     <script>
       new WOW().init();
     </script>
@@ -82,20 +83,20 @@
                     <a href="https://app.jobbox.one/jobboxcompanies"
                       class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">Companies</a>
                   </li> -->
-                <li class="group relative">
-                  <a href="#companies"
-                    class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">
-                    Companies
-                  </a>
-                </li>
-<!-- 
+                  <li class="group relative">
+                    <a href="#companies"
+                      class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">
+                      Companies
+                    </a>
+                  </li>
+                  <!-- 
                 <li class="group relative">
                   <a href="#pricing"
                     class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">
                     Pricing
                   </a>
                 </li> -->
-                <!-- <li class="group relative">
+                  <!-- <li class="group relative">
                     <a
                       href="#team"
                       class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">
@@ -201,6 +202,45 @@
                       </a>
                     </div>
                   </li>
+                  <!-- <li id="employeeMenu" class="submenu-item group relative">
+                    <a href="javascript:void(0)" class="relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">
+                      Employee
+                      <svg class="ml-2 fill-current" width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.99999 14.9C7.84999 14.9 7.72499 14.85 7.59999 14.75L1.84999 9.10005C1.62499 8.87505 1.62499 8.52505 1.84999 8.30005C2.07499 8.07505 2.42499 8.07505 2.64999 8.30005L7.99999 13.525L13.35 8.25005C13.575 8.02505 13.925 8.02505 14.15 8.25005C14.375 8.47505 14.375 8.82505 14.15 9.05005L8.39999 14.7C8.27499 14.825 8.14999 14.9 7.99999 14.9Z"/>
+                      </svg>
+                    </a>
+                    <div class="submenu relative left-0 top-full hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full">
+                    
+                      <a href="https://app.jobbox.one/hr-signup" target="_blank" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                        Register
+                      </a>
+                      <a href="https://app.jobbox.one/hr-sign-in" target="_blank" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                        Login
+                      </a>
+                      <a href="#" id="goToDashboardBtn" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary" style="display:none;">
+                        Go to Dashboard
+                      </a>
+                    </div>
+                  </li> -->
+                  <!-- <li id="candidateMenu" class="submenu-item group relative">
+                    <a href="javascript:void(0)" class="relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10 lg:hidden">
+                      Candidate
+                      <svg class="ml-2 fill-current" width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.99999 14.9C7.84999 14.9 7.72499 14.85 7.59999 14.75L1.84999 9.10005C1.62499 8.87505 1.62499 8.52505 1.84999 8.30005C2.07499 8.07505 2.42499 8.07505 2.64999 8.30005L7.99999 13.525L13.35 8.25005C13.575 8.02505 13.925 8.02505 14.15 8.25005C14.375 8.47505 14.375 8.82505 14.15 9.05005L8.39999 14.7C8.27499 14.825 8.14999 14.9 7.99999 14.9Z"/>
+                      </svg>
+                    </a>
+                    <div class="submenu relative left-0 top-full hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full lg:hidden">
+                      <a href="https://app.jobbox.one/candidate-signup" target="_blank" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                        Register
+                      </a>
+                      <a href="https://app.jobbox.one/signin" target="_blank" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                        Login
+                      </a>
+                      <a href="#" id="goToDashboardBtnCandidate" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary" style="display:none;">
+                        Go to Dashboard
+                      </a>
+                    </div>
+                  </li> -->
 
                 </ul>
               </nav>
@@ -1053,6 +1093,7 @@
     <!-- ====== About Section End -->
     <!-- ====== Jobs Section Start -->
 
+
     <!-- Recent Jobs Section -->
     <section id="jobs"
       class="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
@@ -1078,6 +1119,7 @@
           </div>
         </div>
       </div>
+
       <!-- Jobs Listing -->
       <div class="browse-jobs-container">
         <div class="image-slider" id="latest-jobs-container">
@@ -1085,8 +1127,16 @@
         </div>
       </div>
 
-      <h1 id="no-jobs" class="text-center"
-        style="color: red; display: none;">No jobs found</h1>
+      <!-- No jobs message -->
+      <h1 id="no-jobs" class="text-center" style="color: red; display: none;">No
+        jobs found</h1>
+
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="text-center" style="display: none;">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
     </section>
 
     <script src="/assets/js/jobscript.js"></script>
