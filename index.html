@@ -26,7 +26,7 @@
       src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
     <!-- ==== WOW JS ==== -->
     <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/chechLogin.js"></script>
+    <script src="assets/js/checkLogin.js"></script>
     <script>
       new WOW().init();
     </script>
@@ -130,21 +130,21 @@
                     </a>
                     <div
                       class="submenu relative left-0 top-full hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full">
-                      <!--   <a href="about.html"
+                      <a href="about.html"
                         class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
                         About Page
-                         </a>
+                      </a>
                       <a
-                        href="/play-tailwind-main/pricing.html"
+                        href="pricing.html"
                         class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
                         Pricing Page
                       </a>
                       <a
-                        href="/play-tailwind-main/contact.html"
+                        href="contact.html"
                         class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
                         Contact Page
                       </a>
-                      <a
+                      <!-- <a
                         href="/play-tailwind-main/blog-grids.html"
                         class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
                         Blog Grid Page
@@ -166,62 +166,38 @@
                         Login
                       </a>
 
-                      <!-- <a
-                        href="/play-tailwind-main/404.html"
+                      <a
+                        href="404.html"
                         class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
                         404 Page
-                      </a> -->
+                      </a>
                     </div>
                   </li>
-                  <li class="submenu-item group relative">
+                  <!-- <li class="submenu-item group relative">
                     <a href="javascript:void(0)"
-                      class="relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10 lg:hidden">
-                      Candidate
-
-                      <svg class="ml-2 fill-current" width="16" height="20"
+                       class="relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10 lg:hidden"
+                       id="candidateLink">
+                        Candidate
+                        <svg class="ml-2 fill-current" width="16" height="20"
                         viewBox="0 0 16 20" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M7.99999 14.9C7.84999 14.9 7.72499 14.85 7.59999 14.75L1.84999 9.10005C1.62499 8.87505 1.62499 8.52505 1.84999 8.30005C2.07499 8.07505 2.42499 8.07505 2.64999 8.30005L7.99999 13.525L13.35 8.25005C13.575 8.02505 13.925 8.02505 14.15 8.25005C14.375 8.47505 14.375 8.82505 14.15 9.05005L8.39999 14.7C8.27499 14.825 8.14999 14.9 7.99999 14.9Z" />
                       </svg>
                     </a>
-
-                    <!-- Submenu for Candidate (will only appear on mobile view) -->
-                    <div
-                      class="submenu relative left-0 top-full hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full lg:hidden">
-                      <a href="https://app.jobbox.one/candidate-signup"
-                        target="_blank"
-                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
-                        Register
-                      </a>
-
-                      <a href="https://app.jobbox.one/signin"
-                        target="_blank"
-                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
-                        Login
-                      </a>
+                
+                    Submenu for Candidate (will only appear on mobile view) 
+                    <div  class="submenu relative left-0 top-full hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full"> id="candidateSubmenu">
+                        <a href="https://app.jobbox.one/candidate-signup" target="_blank" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary" id="signupLink">Register</a>
+                        <a href="https://app.jobbox.one/signin" target="_blank" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary" id="loginLink">Login</a>
                     </div>
-                  </li>
-                  <!-- <li id="employeeMenu" class="submenu-item group relative">
-                    <a href="javascript:void(0)" class="relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">
-                      Employee
-                      <svg class="ml-2 fill-current" width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.99999 14.9C7.84999 14.9 7.72499 14.85 7.59999 14.75L1.84999 9.10005C1.62499 8.87505 1.62499 8.52505 1.84999 8.30005C2.07499 8.07505 2.42499 8.07505 2.64999 8.30005L7.99999 13.525L13.35 8.25005C13.575 8.02505 13.925 8.02505 14.15 8.25005C14.375 8.47505 14.375 8.82505 14.15 9.05005L8.39999 14.7C8.27499 14.825 8.14999 14.9 7.99999 14.9Z"/>
-                      </svg>
-                    </a>
-                    <div class="submenu relative left-0 top-full hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full">
-                    
-                      <a href="https://app.jobbox.one/hr-signup" target="_blank" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
-                        Register
-                      </a>
-                      <a href="https://app.jobbox.one/hr-sign-in" target="_blank" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
-                        Login
-                      </a>
-                      <a href="#" id="goToDashboardBtn" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary" style="display:none;">
-                        Go to Dashboard
-                      </a>
+                
+                    Welcome message and dashboard button (hidden initially) 
+                    <div id="userGreeting" style="display:none;">
+                        <span id="welcomeMessage" class="text-sm font-medium text-dark"></span>
+                        <a id="dashboardButton" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">Go to Dashboard</a>
                     </div>
-                  </li> -->
+                </li> -->
                   <!-- <li id="candidateMenu" class="submenu-item group relative">
                     <a href="javascript:void(0)" class="relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10 lg:hidden">
                       Candidate
@@ -293,7 +269,7 @@
                 </span>
               </label>
               <div class="hidden sm:flex">
-                <a href="https://app.jobbox.one/signin"
+                <!-- <a href="https://app.jobbox.one/signin"
                   target="_blank"
                   class="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70">
                   Login
@@ -302,7 +278,24 @@
                   target="_blank"
                   class="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark">
                   Register
-                </a>
+                </a> -->
+                <div id="authButtons">
+                  <a href="https://app.jobbox.one/signin" target="_blank"
+                    class="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70">Login</a>
+                  <a href="https://app.jobbox.one/candidate-signup"
+                    target="_blank"
+                    class="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark">Register</a>
+                </div>
+                <!-- Welcome and Dashboard button (hidden initially) -->
+                <div id="userGreeting" style="display:none;">
+                  <span id="welcomeMessage" class="welcomeText"></span>
+                  <a id="dashboardButton"
+                    class="btn px-[22px] py-2 text-base font-medium text-white hover:opacity-70">Go
+                    to Dashboard</a>
+                  <button id="logoutButton"
+                    class="btn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark">Log
+                    Out</button>
+                </div>
               </div>
             </div>
           </div>
@@ -1093,7 +1086,6 @@
     <!-- ====== About Section End -->
     <!-- ====== Jobs Section Start -->
 
-
     <!-- Recent Jobs Section -->
     <section id="jobs"
       class="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
@@ -1250,15 +1242,16 @@
           <div class="w-full px-4">
             <div class="mx-auto mb-[60px] max-w-[510px] text-center">
               <span class="mb-2 block text-lg font-semibold text-primary">
-                Pricing Table
+                Pricing section
               </span>
               <h2
                 class="mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
                 Awesome Pricing Plan
               </h2>
               <p class="text-base text-body-color dark:text-dark-6">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Our simply Awesome plans
+                We are not charging anything during our launch phase for the
+                first 10,000 job seekers and 5000 companies
               </p>
             </div>
           </div>
@@ -1269,16 +1262,16 @@
               class="relative z-10 mb-10 overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14">
               <span
                 class="mb-5 block text-xl font-medium text-dark dark:text-white">
-                Starter
+                Job Seekers Basic
               </span>
               <h2
                 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
                 <span class="text-xl font-medium">$</span>
-                <span class="-ml-1 -tracking-[2px]">25.00</span>
-                <span
+                <span class="-ml-1 -tracking-[2px]">Free</span>
+                <!-- <span
                   class="text-base font-normal text-body-color dark:text-dark-6">
                   Per Month
-                </span>
+                </span> -->
               </h2>
               <div class="mb-[50px]">
                 <h5
@@ -1287,22 +1280,28 @@
                 </h5>
                 <div class="flex flex-col gap-[14px]">
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Up to 1 User
+                    Dream Company Apply
                   </p>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    All UI components
+                    Multi-resume profiles
                   </p>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Lifetime access
+                    Job preference personalization (City, Country, Company, salary, and more)
                   </p>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Free updates
+                    AI matches 
+                  </p>
+                  <p class="text-base text-body-color dark:text-dark-6">
+                    Stealth Profile (Free for limited time)
+                  </p>
+                  <p class="text-base text-body-color dark:text-dark-6">                  
+                    Basic Resume analytics                   
                   </p>
                 </div>
               </div>
               <a href="javascript:void(0)"
                 class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
-                Purchase Now
+                Join Now
               </a>
             </div>
           </div>
@@ -1315,16 +1314,16 @@
               </p>
               <span
                 class="mb-5 block text-xl font-medium text-dark dark:text-white">
-                Basic
+                Corporate Basic
               </span>
               <h2
                 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
                 <span class="text-xl font-medium">$</span>
-                <span class="-ml-1 -tracking-[2px]">59.00</span>
-                <span
+                <span class="-ml-1 -tracking-[2px]">Free</span>
+                <!-- <span
                   class="text-base font-normal text-body-color dark:text-dark-6">
                   Per Month
-                </span>
+                </span> -->
               </h2>
               <div class="mb-[50px]">
                 <h5
@@ -1333,22 +1332,34 @@
                 </h5>
                 <div class="flex flex-col gap-[14px]">
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Up to 1 User
+                    Free easy to access shared but secured Jobbox
                   </p>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    All UI components
+                    Your own data bank
                   </p>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Lifetime access
+                    10 HR accounts free
                   </p>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Free updates
+                    Unlimited job posts
+                  </p>
+                  <p class="text-base text-body-color dark:text-dark-6">
+                    Stealth profile connects
+                  </p>
+                  <p class="text-base text-body-color dark:text-dark-6">
+                    Direct candidate connect
+                  </p>
+                  <p class="text-base text-body-color dark:text-dark-6">
+                    Choose from seekers who Dream about joining you
+                  </p>
+                  <p class="text-base text-body-color dark:text-dark-6">
+                    Evergreen jobs- profiles you are always looking to hire
                   </p>
                 </div>
               </div>
               <a href="javascript:void(0)"
                 class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
-                Purchase Now
+                Open/Claim your Jobbox
               </a>
             </div>
           </div>
@@ -1362,11 +1373,11 @@
               <h2
                 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
                 <span class="text-xl font-medium">$</span>
-                <span class="-ml-1 -tracking-[2px]">99.00</span>
-                <span
+                <span class="-ml-1 -tracking-[2px]">Coming soon</span>
+                <!-- <span
                   class="text-base font-normal text-body-color dark:text-dark-6">
                   Per Month
-                </span>
+                </span> -->
               </h2>
               <div class="mb-[50px]">
                 <h5
@@ -1374,23 +1385,32 @@
                   Features
                 </h5>
                 <div class="flex flex-col gap-[14px]">
+                  <div>                   
+                   <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Seeker-Pro</h3>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Up to 1 User
+                    Credits to apply to more companies 
                   </p>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    All UI components
+                    Advanced resume analytics
+                  </p>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Hr-Pro</h3>
+                  <p class="text-base text-body-color dark:text-dark-6">
+                    Advance Analytics
                   </p>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Lifetime access
+                    Stealth hunting
                   </p>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Free updates
+                    AI matches (Coming soon)
                   </p>
+                </div>
                 </div>
               </div>
               <a href="javascript:void(0)"
                 class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
-                Purchase Now
+                Coming soon
               </a>
             </div>
           </div>
@@ -1413,10 +1433,10 @@
                 class="mb-3 text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
                 What our Clients Say
               </h2>
-              <p class="text-base text-body-color dark:text-dark-6">
+              <!-- <p class="text-base text-body-color dark:text-dark-6">
                 There are many variations of passages of Lorem Ipsum available
                 but the majority have suffered alteration in some form.
-              </p>
+              </p> -->
             </div>
           </div>
         </div>
@@ -1441,8 +1461,7 @@
                   </div>
 
                   <p class="mb-6 text-base text-body-color dark:text-dark-6">
-                    “Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community.’’
+                    “Simply liked the whole new way of applying to companies, never thought I can send my resume directly to some of my dream companies, and also got response from 2 of them. Awesome!’’
                   </p>
 
                   <a href="#" class="flex items-center gap-4">
@@ -1456,10 +1475,10 @@
                     <div>
                       <h3
                         class="text-sm font-semibold text-dark dark:text-white">
-                        Sabo Masties
+                        Raj Merchant
                       </h3>
-                      <p class="text-xs text-body-secondary">Founder @
-                        Rolex</p>
+                      <p class="text-xs text-body-secondary"> Santa Monica, USA
+                      </p>
                     </div>
                   </a>
                 </div>
@@ -1482,8 +1501,8 @@
                   </div>
 
                   <p class="mb-6 text-base text-body-color dark:text-dark-6">
-                    “Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community.’’
+                    “I just claimed my job-box for my company, its simply cool, now world can write to me at frymo@jobbox.one, my new unique global box. Its also shared across my HR team!
+                    ’’
                   </p>
 
                   <a href="#" class="flex items-center gap-4">
@@ -1497,10 +1516,10 @@
                     <div>
                       <h3
                         class="text-sm font-semibold text-dark dark:text-white">
-                        Musharof Chowdhury
+                        Abhas
                       </h3>
                       <p class="text-xs text-body-secondary">
-                        Founder @ Ayro UI
+                        Frymo.com, Bangalore, India
                       </p>
                     </div>
                   </a>
@@ -1524,8 +1543,8 @@
                   </div>
 
                   <p class="mb-6 text-base text-body-color dark:text-dark-6">
-                    “Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community.’’
+                    “Always thought how can I tell the world I am looking for CXO positions, but same time not showcasing am out there in the open market. Love the stealth profile!
+                    ’’
                   </p>
 
                   <a href="#" class="flex items-center gap-4">
@@ -1539,10 +1558,10 @@
                     <div>
                       <h3
                         class="text-sm font-semibold text-dark dark:text-white">
-                        William Smith
+                        Sim Rey
                       </h3>
                       <p class="text-xs text-body-secondary">
-                        Founder @ Trorex
+                        VP, London UK
                       </p>
                     </div>
                   </a>
@@ -1566,8 +1585,7 @@
                   </div>
 
                   <p class="mb-6 text-base text-body-color dark:text-dark-6">
-                    “Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community.’’
+                    “Simply liked the whole new way of applying to companies, never thought I can send my resume directly to some of my dream companies, and also got response from 2 of them. Awesome!’’
                   </p>
 
                   <a href="#" class="flex items-center gap-4">
@@ -1581,51 +1599,9 @@
                     <div>
                       <h3
                         class="text-sm font-semibold text-dark dark:text-white">
-                        Sabo Masties
+                        Raj Merchant
                       </h3>
-                      <p class="text-xs text-body-secondary">Founder @
-                        Rolex</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div
-                  class="rounded-xl bg-white px-4 py-[30px] shadow-testimonial dark:bg-dark sm:px-[30px]">
-                  <div class="mb-[18px] flex items-center gap-[2px]">
-                    <img src="./assets/images/testimonials/icon-star.svg"
-                      alt="star icon" />
-                    <img src="./assets/images/testimonials/icon-star.svg"
-                      alt="star icon" />
-                    <img src="./assets/images/testimonials/icon-star.svg"
-                      alt="star icon" />
-                    <img src="./assets/images/testimonials/icon-star.svg"
-                      alt="star icon" />
-                    <img src="./assets/images/testimonials/icon-star.svg"
-                      alt="star icon" />
-                  </div>
-
-                  <p class="mb-6 text-base text-body-color dark:text-dark-6">
-                    “Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community.’’
-                  </p>
-
-                  <a href="#" class="flex items-center gap-4">
-                    <div
-                      class="h-[50px] w-[50px] overflow-hidden rounded-full">
-                      <img src="./assets/images/testimonials/author-02.jpg"
-                        alt="author"
-                        class="h-[50px] w-[50px] overflow-hidden rounded-full" />
-                    </div>
-
-                    <div>
-                      <h3
-                        class="text-sm font-semibold text-dark dark:text-white">
-                        Musharof Chowdhury
-                      </h3>
-                      <p class="text-xs text-body-secondary">
-                        Founder @ Ayro UI
+                      <p class="text-xs text-body-secondary"> Santa Monica, USA
                       </p>
                     </div>
                   </a>
@@ -1649,8 +1625,50 @@
                   </div>
 
                   <p class="mb-6 text-base text-body-color dark:text-dark-6">
-                    “Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community.’’
+                    “I just claimed my job-box for my company, its simply cool, now world can write to me at frymo@jobbox.one, my new unique global box. Its also shared across my HR team!
+                    ’’
+                  </p>
+
+                  <a href="#" class="flex items-center gap-4">
+                    <div
+                      class="h-[50px] w-[50px] overflow-hidden rounded-full">
+                      <img src="./assets/images/testimonials/author-02.jpg"
+                        alt="author"
+                        class="h-[50px] w-[50px] overflow-hidden rounded-full" />
+                    </div>
+
+                    <div>
+                      <h3
+                        class="text-sm font-semibold text-dark dark:text-white">
+                        Abhas
+                      </h3>
+                      <p class="text-xs text-body-secondary">
+                        Frymo.com, Bangalore, India
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="rounded-xl bg-white px-4 py-[30px] shadow-testimonial dark:bg-dark sm:px-[30px]">
+                  <div class="mb-[18px] flex items-center gap-[2px]">
+                    <img src="./assets/images/testimonials/icon-star.svg"
+                      alt="star icon" />
+                    <img src="./assets/images/testimonials/icon-star.svg"
+                      alt="star icon" />
+                    <img src="./assets/images/testimonials/icon-star.svg"
+                      alt="star icon" />
+                    <img src="./assets/images/testimonials/icon-star.svg"
+                      alt="star icon" />
+                    <img src="./assets/images/testimonials/icon-star.svg"
+                      alt="star icon" />
+                  </div>
+
+                  <p class="mb-6 text-base text-body-color dark:text-dark-6">
+                    “Always thought how can I tell the world I am looking for CXO positions, but same time not showcasing am out there in the open market. Love the stealth profile!
+                    ’’
                   </p>
 
                   <a href="#" class="flex items-center gap-4">
@@ -1664,10 +1682,10 @@
                     <div>
                       <h3
                         class="text-sm font-semibold text-dark dark:text-white">
-                        William Smith
+                        Sim Rey
                       </h3>
                       <p class="text-xs text-body-secondary">
-                        Founder @ Trorex
+                        VP, London UK
                       </p>
                     </div>
                   </a>

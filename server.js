@@ -13,7 +13,7 @@ const port = process.env.PORT || 3001;
 // });
 
 // Serve static files from the 'public' directory (adjust this as needed)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 // Serve your HTML files directly, if necessary
 app.get('/', (req, res) => {
