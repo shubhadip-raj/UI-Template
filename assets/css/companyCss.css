@@ -1,109 +1,102 @@
-/* styles.css */
-
-/* Style for the image container */
-#image-section {
-    margin-top: 20px;
-    width: 100%;
+/* Slide-in animation for h1 */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
-/* Flexbox row for images */
-.image-row {
-    display: grid;
-    gap: 0; /* No gap between images */
-    margin-bottom: 2rem;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Auto fill columns */
-    grid-auto-rows: auto; /* Auto rows based on content */
-    width: 100%; /* Ensures that images fill the full width of the container */
+/* Left to Right movement */
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(10px);
+    }
 }
 
-/* Image div container */
+/* Right to Left movement */
+@keyframes moveRightLeft {
+    0% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
+/* Up to Down movement */
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+/* Down to Up movement */
+@keyframes moveDownUp {
+    0% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Apply to collection div - animation for left-right and up-down movement */
 .collection {
-    width: 100%;
-    border: 4px solid #3b82f6; /* Blue border */
-    border-radius: 1rem; /* Rounded corners */
+
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0; /* Start as invisible */
-    transform: scale(0.9); /* Start slightly scaled down */
-    animation: fadeInScale 0.6s forwards; /* Fade in with scale animation */
+    transition: transform 0.3s ease;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    width: auto; /* Auto width instead of full width */
+    height: auto; /* Auto height */
+    max-width: 120px; /* Adjust size as needed */
+    max-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Image hover effect */
-.collection:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Increased shadow for hover */
+.collection:nth-child(odd) {
+    animation-name: moveLeftRight;
 }
 
-/* Image styles */
+.collection:nth-child(even) {
+    animation-name: moveRightLeft;
+}
+
 .collection img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image fills the container */
+    transition: transform 0.3s ease;
+    object-fit: contain; 
 }
 
-/* Animation for fade-in and scaling */
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+/* Hover effect to scale the box */
+.collection:hover {
+    transform: scale(1.1);
 }
 
-/* Media Queries for responsiveness */
 
-/* Small screen (sm) - Screens 640px or larger */
-@media screen and (max-width: 640px) {
-    /* For small screens, display in 2x2 grid */
-    .image-row {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    }
-
-    /* Further reduce image size for small screens */
-    .collection {
-        max-width: 6rem; /* Smaller size for small screens */
-    }
-}
-
-/* Medium screen (md) - Screens 768px or larger (iPad screen size) */
-@media screen and (max-width: 768px) {
-    /* For medium screens (like iPads), display in 3x3 grid */
-    .image-row {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    }
-
-    /* Slightly reduce image size */
-    .collection {
-        max-width: 7rem; /* Medium screen size */
-    }
-}
-
-/* Large screen (lg) - Screens 1024px or larger */
-@media screen and (min-width: 1024px) {
-    /* For larger screens, display in a responsive grid layout */
-    .image-row {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Auto adjust grid layout */
-    }
-
-    /* Default image size for larger screens */
-    .collection {
-        max-width: 8rem; /* Default size */
-    }
-}
-
-/* Extra large screen (xl) - Screens 1280px or larger */
-@media screen and (min-width: 1280px) {
-    /* For extra-large screens, display in a responsive grid layout */
-    .image-row {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Auto adjust grid layout */
-    }
-
-    /* Default image size for extra-large screens */
-    .collection {
-        max-width: 9rem; /* Default size */
-    }
+#image-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows images to wrap to the next row if necessary */
+    justify-content: center; /* Centers images horizontally */
+    gap: 16px; /* Adjust spacing between images */
+    padding: 20px;
 }

@@ -27,36 +27,49 @@ async function fetchImages() {
 }
 
 // Display images in two rows
+// function displayImages() {
+//     const half = Math.ceil(images.length / 2);
+//     const firstHalf = images.slice(0, half);
+//     const secondHalf = images.slice(half);
+
+//     // Populate first row
+//     firstHalf.forEach((img, index) => {
+//         const div = createImageDiv(img.src, index);
+//         row1.appendChild(div);
+//     });
+
+//     // Populate second row
+//     secondHalf.forEach((img, index) => {
+//         const div = createImageDiv(img.src, index + half);
+//         row2.appendChild(div);
+//     });
+// }
 function displayImages() {
-    const half = Math.ceil(images.length / 2);
-    const firstHalf = images.slice(0, half);
-    const secondHalf = images.slice(half);
+    const gridContainer = document.getElementById('image-section');
+    gridContainer.innerHTML = ""; // Clear previous images if any
 
-    // Populate first row
-    firstHalf.forEach((img, index) => {
+    images.forEach((img, index) => {
         const div = createImageDiv(img.src, index);
-        row1.appendChild(div);
-    });
-
-    // Populate second row
-    secondHalf.forEach((img, index) => {
-        const div = createImageDiv(img.src, index + half);
-        row2.appendChild(div);
+        gridContainer.appendChild(div);
     });
 }
+
 
 // Create an image div element with animation class
 function createImageDiv(src, index) {
     const div = document.createElement('div');
     
-    // Tailwind classes to make the images responsive
+      // Updated Tailwind classes
     div.classList.add(
         'collection', 
-        'w-full',  // Makes the div responsive (full width by default)
-        'sm:w-32',  // On small screens, it takes up 32 width (8rem)
-        'md:w-36',  // On medium screens, it takes up 36 width (9rem)
-        'lg:w-48',  // On large screens, it takes up 48 width (12rem)
-        'xl:w-56',  // On extra-large screens, it takes up 56 width (14rem)
+        'max-w-[120px]', // Maximum width (adjust as needed)
+        'max-h-[120px]', // Maximum height (adjust as needed)
+        'sm:max-w-[100px]',  // Smaller width on small screens
+        'sm:max-h-[100px]',  
+        'md:max-w-[110px]',  // Adjust size for medium screens
+        'md:max-h-[110px]',  
+        'lg:max-w-[120px]',  // Adjust size for large screens
+        'lg:max-h-[120px]',  
         'border-4', 
         'border-blue-500', 
         'rounded-xl', 
@@ -66,9 +79,11 @@ function createImageDiv(src, index) {
         'transform', 
         'hover:scale-110', 
         'hover:shadow-xl',
-        'm-4' // Adds margin to space out the images
+        'm-4', 
+        'flex',  // Centering image inside
+        'justify-center',
+        'items-center'
     );
-
     const img = document.createElement('img');
     img.src = src;
     img.alt = `Company logo ${index}`;
