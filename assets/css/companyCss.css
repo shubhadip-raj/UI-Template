@@ -100,3 +100,16 @@
     gap: 16px; /* Adjust spacing between images */
     padding: 20px;
 }
+
+
+
+
+/*   Button hide css   */
+#logoutButton,
+#dashboardButton,
+#welcomeMessage,
+#logoutButton1,
+#dashboardButton1,
+#welcomeMessage1 {
+    display: none;
+}

@@ -124,7 +124,7 @@
 //             // Clear the cookies
 //             document.cookie = 'user=; path=/; domain=jobbox.one; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
 //             document.cookie = 'token=; path=/; domain=jobbox.one; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
-            
+
 //             // Call toggleMenu() to immediately update the UI after logout
 //             toggleMenu();
 //         };
@@ -220,23 +220,36 @@ function toggleMenu() {
         welcomeMessage1.textContent = `Welcome ${user.userName}`;
 
         // Set dashboard link based on user role
-        const dashboardUrl = user.userRole === 'HR' ? 
-            `https://app.jobbox.one/hr-dashboard?userEmail=${encodeURIComponent(user.userEmail)}&userName=${encodeURIComponent(user.userName)}` : 
+        const dashboardUrl = user.userRole === 'HR' ?
+            `https://app.jobbox.one/hr-dashboard?userEmail=${encodeURIComponent(user.userEmail)}&userName=${encodeURIComponent(user.userName)}` :
             `https://app.jobbox.one/candidate-dashboard?userId=${encodeURIComponent(user.userId)}&userName=${encodeURIComponent(user.userName)}`;
 
         // Set both dashboard buttons
         dashboardButton.setAttribute('href', dashboardUrl);
         dashboardButton1.setAttribute('href', dashboardUrl);
-
+        // Show the logout and dashboard buttons by changing their display property
+        logoutButton.style.display = 'block';
+        dashboardButton.style.display = 'block';
+        logoutButton1.style.display = 'block';
+        dashboardButton1.style.display = 'block';
+        welcomeMessage.style.display = 'block';
+        welcomeMessage1.style.display = 'block';
         // Logout event handler inside userGreeting
         const logoutHandler = function () {
             // Clear the cookies
             document.cookie = 'user=; path=/; domain=jobbox.one; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
             document.cookie = 'token=; path=/; domain=jobbox.one; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
-            
+
             // Hide user greeting and dashboard button, show login/register buttons
             authButtons.style.display = 'block';  // Show login/register
             userGreeting.style.display = 'none';  // Hide welcome and dashboard
+            // Hide the logout and dashboard buttons again
+            logoutButton.style.display = 'none';
+            dashboardButton.style.display = 'none';
+            logoutButton1.style.display = 'none';
+            dashboardButton1.style.display = 'none';
+            welcomeMessage.style.display = 'none';
+            welcomeMessage1.style.display = 'none';
 
             // Call toggleMenu() to immediately update the UI after logout
             toggleMenu();
@@ -265,6 +278,7 @@ function toggleMenu() {
 
         // Show login/register buttons if user is not logged in
         authButtons.style.display = 'block'; // Show login/register buttons if not logged in
+        userGreeting.style.display = 'none';  // Hide welcome and dashboard
     }
 }
 
