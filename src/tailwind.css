@@ -37,6 +37,9 @@
   @apply text-dark dark:text-white hover:text-primary dark:hover:text-primary hover:opacity-100;
 }
 
+.header-logo{
+  background-color: white;
+}
 .sticky .signUpBtn {
   @apply bg-primary text-white hover:bg-blue-dark hover:text-white;
 }
