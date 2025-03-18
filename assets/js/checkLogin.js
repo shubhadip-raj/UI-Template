@@ -174,10 +174,38 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
     return null;
 }
+// Helper function to check if token is expired
+const isTokenExpired = (token) => {
+    try {
+      const decodedToken = JSON.parse(atob(token.split('.')[1]));  // Decode the JWT payload
+      const expiryTime = decodedToken.exp * 1000;  // Convert expiry to milliseconds
+      return Date.now() > expiryTime;  // Compare current time with token expiry time
+    } catch (error) {
+      console.error('Error decoding token', error);
+      return true;  // In case of any error in decoding, treat token as expired
+    }
+  };
 // Function to toggle the menus based on screen size and user login status
 function toggleMenu() {
     const userCookie = getCookie('user');
     const tokenCookie = getCookie('token');
+     // If no token or user data exists, or the token is expired, clear cookies and redirect to login page
+if (isTokenExpired(tokenCookie)) {
+    const clearCookies = () => {
+        const domain = window.location.hostname === 'localhost' ? 'localhost' : 'jobbox.one';
+        // Clear user and token cookies by setting their expiration date to the past
+        document.cookie = `user=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+        document.cookie = `token=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+    };
+    
+    // Call clearCookies to delete cookies
+    clearCookies();
+    
+    // Redirect to the homepage
+    window.location.href = '/'; // Redirect to the homepage
+
+    return;  // Don't proceed further
+}
     const isMobile = window.innerWidth < 1024;
     const candidateMenu = document.getElementById('candidateMenu');
     const welcomeUserMenu = document.getElementById('welcomeUserMenu');
