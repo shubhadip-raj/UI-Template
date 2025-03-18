@@ -190,7 +190,7 @@ function toggleMenu() {
     const userCookie = getCookie('user');
     const tokenCookie = getCookie('token');
      // If no token or user data exists, or the token is expired, clear cookies and redirect to login page
-if (isTokenExpired(tokenCookie)) {
+if (!tokenCookie ||isTokenExpired(tokenCookie)) {
     const clearCookies = () => {
         const domain = window.location.hostname === 'localhost' ? 'localhost' : 'jobbox.one';
         // Clear user and token cookies by setting their expiration date to the past
@@ -201,8 +201,8 @@ if (isTokenExpired(tokenCookie)) {
     // Call clearCookies to delete cookies
     clearCookies();
     
-    // Redirect to the homepage
-    window.location.href = '/'; // Redirect to the homepage
+    // // Redirect to the homepage
+    // window.location.href = '/'; // Redirect to the homepage
 
     return;  // Don't proceed further
 }
