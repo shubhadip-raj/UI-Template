@@ -274,6 +274,7 @@ if (!tokenCookie ||isTokenExpired(tokenCookie)) {
             // Hide user greeting and dashboard button, show login/register buttons
             authButtons.style.display = 'block';  // Show login/register
             userGreeting.style.display = 'none';  // Hide welcome and dashboard
+            employeeMenu.style.display = 'block'; // Show Employee menu (if user is logged out)
             // Hide the logout and dashboard buttons again
             logoutButton.style.display = 'none';
             dashboardButton.style.display = 'none';
