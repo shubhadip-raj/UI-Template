@@ -724,9 +724,10 @@
               Recent Jobs
             </h2>
             <h3>
-              <a href="https://app.jobbox.one/browse-jobs" target="_blank" rel="noopener noreferrer"
+              <a href="#" id="browseJobsLink"
                 class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white">
-                View more Jobs</a>
+                View more Jobs
+              </a>
             </h3>
             <p class="text-base text-body-color dark:text-dark-6">
               There are many variations of passages of Lorem Ipsum available
@@ -822,9 +823,11 @@
               Top Companies
             </h2>
             <h3>
-              <a href="https://app.jobbox.one/jobboxcompanies" target="_blank" rel="noopener noreferrer"
-                class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white ">
-                View more companies</a>
+              <a id="companiesLink" href="#" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white">
+                View more companies
+              </a>
+
             </h3>
             <p class="text-base text-body-color dark:text-dark-6">
               There are many variations of passages of Lorem Ipsum available
@@ -2596,10 +2599,10 @@
   <!-- ====== Back To Top End -->
 
   <!-- ====== All Scripts -->
-
-
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <!-- user login and register links locally and server  -->
   <script>
     // Ensure the script runs after the DOM is fully loaded
     document.addEventListener('DOMContentLoaded', function () {
@@ -2613,6 +2616,32 @@
       document.querySelector('.loginBtn').href = `${baseUrl}/signin`;
       document.querySelector('.signUpBtn').href = `${baseUrl}/candidate-signup`;
 
+    });
+  </script>
+
+  <!-- browse jobs -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const browseJobsLink = document.getElementById("browseJobsLink");
+      const baseUrl = window.location.hostname === "localhost"
+        ? "http://localhost:3000/browse-jobs"
+        : "https://app.jobbox.one/browse-jobs";
+
+      browseJobsLink.href = baseUrl;
+    });
+  </script>
+
+
+  <!-- companies -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const companiesLink = document.getElementById("companiesLink");
+
+      if (companiesLink) {
+        companiesLink.href = window.location.hostname === "localhost"
+          ? "http://localhost:3000/jobboxcompanies"
+          : "https://app.jobbox.one/jobboxcompanies";
+      }
     });
   </script>
   <script>

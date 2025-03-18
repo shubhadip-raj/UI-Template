@@ -112,8 +112,9 @@ async function handleImageClick(imageSrc) {
 
         if (company) {
             const encodedCompanyName = encodeURIComponent(company.companyName);
-            const companyUrl = `https://app.jobbox.one/companyPage/companyName/${encodedCompanyName}`;
-            
+            const companyUrl = window.location.hostname === "localhost"
+            ? `http://localhost:3000/companyPage/companyName/${encodedCompanyName}`
+            : `https://app.jobbox.one/companyPage/companyName/${encodedCompanyName}`;            
             // Open in a new tab
             window.open(companyUrl, "_blank", "noopener,noreferrer"); // Navigate to the company page
         } else {

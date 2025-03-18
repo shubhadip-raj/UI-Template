@@ -61,8 +61,12 @@ async function displayLatestJobs(jobs) {
                 companyName: encodeURIComponent(job.companyName),
                 jobId: encodeURIComponent(job.jobId)
             }).toString();
-            window.open(`https://app.jobbox.one/browse-jobs/job-details?${params}`, '_blank', 'noopener,noreferrer');
-        });
+            const baseUrl = window.location.hostname === "localhost"
+            ? "http://localhost:3000/browse-jobs/job-details"
+            : "https://app.jobbox.one/browse-jobs/job-details";
+    
+        window.open(`${baseUrl}?${params}`, '_blank', 'noopener,noreferrer')
+            });
 
         latestJobsContainer.appendChild(jobCard);
     }
