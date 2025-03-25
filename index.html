@@ -61,13 +61,34 @@
                     Home
                   </a>
                 </li>
-                <!-- About -->
+
+                <!-- Job seekers -->
                 <li class="group relative">
+                  <a id="jobseekers"
+                    class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+                    Job Seekers
+                  </a>
+                </li>
+                <!-- Job seekers -->
+                <li class="group relative">
+                  <a id="companies_nav"
+                    class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+                    Companies
+                  </a>
+                </li>
+
+                <!-- About -->
+                <!-- <li class="group relative">
                   <a href="#about"
                     class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     About
                   </a>
-                </li>
+                  <a id="aboutLink"
+                    class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+                    About
+                  </a>
+
+                </li> -->
 
                 <!-- Jobs -->
                 <li class="group relative">
@@ -77,13 +98,19 @@
                   </a>
                 </li>
 
-                <!-- Companies -->
                 <li class="group relative">
+                  <a id="about_us"
+                    class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+                    About us
+                  </a>
+                </li>
+                <!-- Companies -->
+                <!-- <li class="group relative">
                   <a href="#companies"
                     class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     Companies
                   </a>
-                </li>
+                </li> -->
 
                 <!-- Contact -->
                 <li class="group relative">
@@ -773,21 +800,25 @@
           <div class="w-full px-4">
             <div class="mx-auto max-w-[570px] text-center">
               <h2 class="mb-2.5 text-3xl font-bold text-white md:text-[38px] md:leading-[1.44]">
-                <span>What are you waiting for…?</span><br>
+                <span> Let us get on to Jobbox</span><br>
                 <span class="text-3xl font-normal md:text-[40px]">
-                  Let us get on to Jobbox
+
                 </span>
               </h2>
-              <p class="mx-auto mb-6 max-w-[600px] text-base leading-[1.5] text-white">
+              <p class="mx-auto mb-6 max-w-[600px] text-base leading-[1.5] text-white" style="font-size: 20px;">
                 We have the best tools and options for both Job seekers as
                 well as HR /Companies.
               </p>
-              <a href="javascript:void(0)"
-                class="inline-block rounded-md border border-transparent bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-[#0BB489] mb-4">
+              <p class="mx-auto mb-6 max-w-[600px] text-base leading-[1.5] text-white" style="font-size: 20px;">For Job
+                Seekers</p>
+              <a
+                class="inline-block rounded-md border border-transparent bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-[#0BB489] mb-4 Job-Seekers">
                 Create your profile
               </a>
-              <a href="javascript:void(0)"
-                class="inline-block rounded-md border border-transparent bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-[#0BB489]">
+              <p class="mx-auto mb-6 max-w-[600px] text-base leading-[1.5] text-white" style="font-size: 20px;">For
+                HR/Companies</p>
+              <a
+                class="inline-block rounded-md border border-transparent bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-[#0BB489] HR-Companies">
                 Claim or Create your own Global Jobbox!
               </a>
 
@@ -815,6 +846,8 @@
       </span>
     </div>
   </section>
+
+  <script src="/assets/js/ctaActionScript.js"></script>
   <!-- ====== CTA Section End -->
   <!-- ====== Companies Section Start -->
   <section id="companies"
@@ -852,100 +885,114 @@
   </section>
   <script src="assets/js/companyScript.js"></script>
   <!-- ====== Companies Section End -->
-<!-- ====== Pricing Section Start -->
-<section id="pricing" class="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
-  <div class="container mx-auto">
+  <!-- ====== Pricing Section Start -->
+  <section id="pricing"
+    class="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
+    <div class="container mx-auto">
       <div class="-mx-4 flex flex-wrap">
-          <div class="w-full px-4">
-              <div class="mx-auto mb-[60px] max-w-[510px] text-center">
-                  <span class="mb-2 block text-lg font-semibold text-primary">Pricing section</span>
-                  <h2 class="mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">Awesome Pricing Plan</h2>
-                  <p class="text-base text-body-color dark:text-dark-6">Our simply Awesome plans. We are not charging anything during our launch phase for the first 10,000 job seekers and 5000 companies</p>
-              </div>
+        <div class="w-full px-4">
+          <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+            <span class="mb-2 block text-lg font-semibold text-primary">Pricing section</span>
+            <h2 class="mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
+              Awesome Pricing Plan</h2>
+            <p class="text-base text-body-color dark:text-dark-6">Our simply Awesome plans. We are not charging anything
+              during our launch phase for the first 10,000 job seekers and 5000 companies</p>
           </div>
+        </div>
       </div>
       <div class="-mx-4 flex flex-wrap justify-center">
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-              <div class="relative z-10 mb-10 overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14">
-                  <span class="mb-5 block text-xl font-medium text-dark dark:text-white">Job Seekers Basic</span>
-                  <h2 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
-                      <span class="text-xl font-medium">$</span>
-                      <span class="-ml-1 -tracking-[2px]">Free</span>
-                  </h2>
-                  <div class="mb-[50px]">
-                      <h5 class="mb-5 text-lg font-medium text-dark dark:text-white">Features</h5>
-                      <div class="flex flex-col gap-[14px]">
-                          <p class="text-base text-body-color dark:text-dark-6">Dream Company Apply</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Multi-resume profiles</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Job preference personalization (City, Country, Company, salary, and more)</p>
-                          <p class="text-base text-body-color dark:text-dark-6">AI matches</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Stealth Profile (Free for limited time)</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Basic Resume analytics</p>
-                      </div>
-                  </div>
-                  <a class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark join-now-button">
-                      Join Now
-                  </a>
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div
+            class="relative z-10 mb-10 overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14">
+            <span class="mb-5 block text-xl font-medium text-dark dark:text-white">Job Seekers Basic</span>
+            <h2 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
+              <span class="text-xl font-medium">$</span>
+              <span class="-ml-1 -tracking-[2px]">Free</span>
+            </h2>
+            <div class="mb-[50px]">
+              <h5 class="mb-5 text-lg font-medium text-dark dark:text-white">Features</h5>
+              <div class="flex flex-col gap-[14px]">
+                <p class="text-base text-body-color dark:text-dark-6">Dream Company Apply</p>
+                <p class="text-base text-body-color dark:text-dark-6">Multi-resume profiles</p>
+                <p class="text-base text-body-color dark:text-dark-6">Job preference personalization (City, Country,
+                  Company, salary, and more)</p>
+                <p class="text-base text-body-color dark:text-dark-6">AI matches</p>
+                <p class="text-base text-body-color dark:text-dark-6">Stealth Profile (Free for limited time)</p>
+                <p class="text-base text-body-color dark:text-dark-6">Basic Resume analytics</p>
               </div>
+            </div>
+            <a
+              class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark join-now-button">
+              Join Now
+            </a>
           </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-              <div class="relative z-10 mb-10 overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14">
-                  <p class="absolute right-[-50px] top-[60px] inline-block -rotate-90 rounded-bl-md rounded-tl-md bg-primary px-5 py-2 text-base font-medium text-white">Recommended</p>
-                  <span class="mb-5 block text-xl font-medium text-dark dark:text-white">Corporate Basic</span>
-                  <h2 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
-                      <span class="text-xl font-medium">$</span>
-                      <span class="-ml-1 -tracking-[2px]">Free</span>
-                  </h2>
-                  <div class="mb-[50px]">
-                      <h5 class="mb-5 text-lg font-medium text-dark dark:text-white">Features</h5>
-                      <div class="flex flex-col gap-[14px]">
-                          <p class="text-base text-body-color dark:text-dark-6">Free easy to access shared but secured Jobbox</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Your own data bank</p>
-                          <p class="text-base text-body-color dark:text-dark-6">10 HR accounts free</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Unlimited job posts</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Stealth profile connects</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Direct candidate connect</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Choose from seekers who Dream about joining you</p>
-                          <p class="text-base text-body-color dark:text-dark-6">Evergreen jobs- profiles you are always looking to hire</p>
-                      </div>
-                  </div>
-                  <a  class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark claim-button">
-                      Open/Claim your Jobbox
-                  </a>
+        </div>
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div
+            class="relative z-10 mb-10 overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14">
+            <p
+              class="absolute right-[-50px] top-[60px] inline-block -rotate-90 rounded-bl-md rounded-tl-md bg-primary px-5 py-2 text-base font-medium text-white">
+              Recommended</p>
+            <span class="mb-5 block text-xl font-medium text-dark dark:text-white">Corporate Basic</span>
+            <h2 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
+              <span class="text-xl font-medium">$</span>
+              <span class="-ml-1 -tracking-[2px]">Free</span>
+            </h2>
+            <div class="mb-[50px]">
+              <h5 class="mb-5 text-lg font-medium text-dark dark:text-white">Features</h5>
+              <div class="flex flex-col gap-[14px]">
+                <p class="text-base text-body-color dark:text-dark-6">Free easy to access shared but secured Jobbox</p>
+                <p class="text-base text-body-color dark:text-dark-6">Your own data bank</p>
+                <p class="text-base text-body-color dark:text-dark-6">10 HR accounts free</p>
+                <p class="text-base text-body-color dark:text-dark-6">Unlimited job posts</p>
+                <p class="text-base text-body-color dark:text-dark-6">Stealth profile connects</p>
+                <p class="text-base text-body-color dark:text-dark-6">Direct candidate connect</p>
+                <p class="text-base text-body-color dark:text-dark-6">Choose from seekers who Dream about joining you
+                </p>
+                <p class="text-base text-body-color dark:text-dark-6">Evergreen jobs- profiles you are always looking to
+                  hire</p>
               </div>
+            </div>
+            <a
+              class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark claim-button">
+              Open/Claim your Jobbox
+            </a>
           </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-              <div class="relative z-10 mb-10 overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14">
-                  <span class="mb-5 block text-xl font-medium text-dark dark:text-white">Premium</span>
-                  <h2 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
-                      <span class="text-xl font-medium">$</span>
-                      <span class="-ml-1 -tracking-[2px]">Coming soon</span>
-                  </h2>
-                  <div class="mb-[50px]">
-                      <h5 class="mb-5 text-lg font-medium text-dark dark:text-white">Features</h5>
-                      <div class="flex flex-col gap-[14px]">
-                          <div>
-                              <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Seeker-Pro</h3>
-                              <p class="text-base text-body-color dark:text-dark-6">Credits to apply to more companies</p>
-                              <p class="text-base text-body-color dark:text-dark-6">Advanced resume analytics</p>
-                          </div>
-                          <div>
-                              <h3 class="text-xl font-semibold text-gray-800 dark:text-white">HR-Pro</h3>
-                              <p class="text-base text-body-color dark:text-dark-6">Advance Analytics</p>
-                              <p class="text-base text-body-color dark:text-dark-6">Stealth hunting</p>
-                              <p class="text-base text-body-color dark:text-dark-6">AI matches (Coming soon)</p>
-                          </div>
-                      </div>
-                  </div>
-                  <a href="javascript:void(0)" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
-                      Coming soon
-                  </a>
+        </div>
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div
+            class="relative z-10 mb-10 overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14">
+            <span class="mb-5 block text-xl font-medium text-dark dark:text-white">Premium</span>
+            <h2 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
+              <span class="text-xl font-medium">$</span>
+              <span class="-ml-1 -tracking-[2px]">Coming soon</span>
+            </h2>
+            <div class="mb-[50px]">
+              <h5 class="mb-5 text-lg font-medium text-dark dark:text-white">Features</h5>
+              <div class="flex flex-col gap-[14px]">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Seeker-Pro</h3>
+                  <p class="text-base text-body-color dark:text-dark-6">Credits to apply to more companies</p>
+                  <p class="text-base text-body-color dark:text-dark-6">Advanced resume analytics</p>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800 dark:text-white">HR-Pro</h3>
+                  <p class="text-base text-body-color dark:text-dark-6">Advance Analytics</p>
+                  <p class="text-base text-body-color dark:text-dark-6">Stealth hunting</p>
+                  <p class="text-base text-body-color dark:text-dark-6">AI matches (Coming soon)</p>
+                </div>
               </div>
+            </div>
+            <a href="javascript:void(0)"
+              class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
+              Coming soon
+            </a>
           </div>
+        </div>
       </div>
-  </div>
-</section>
-<!-- ====== Pricing Section End -->
+    </div>
+  </section>
+  <!-- ====== Pricing Section End -->
 
   <!-- ====== Testimonial Section Start -->
   <section id="testimonials" class="overflow-hidden bg-gray-1 py-20 dark:bg-dark-2 md:py-[120px]">
@@ -2065,8 +2112,22 @@
                     Our Location
                   </h5>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    Bangalore (India) | Cupertino (USA) | Davis (USA)
+                    <a href="https://www.google.com/maps?q=Bangalore,India" target="_blank" rel="noopener noreferrer"
+                      style=" margin-right: 5px;">
+                      Bangalore (India)
+                    </a>
+                    |
+                    <a href="https://www.google.com/maps?q=Cupertino,USA" target="_blank" rel="noopener noreferrer"
+                      style=" margin-left: 5px; margin-right: 5px;">
+                      Cupertino (USA)
+                    </a>
+                    |
+                    <a href="https://www.google.com/maps?q=Davis,USA" target="_blank" rel="noopener noreferrer"
+                      style=" margin-left: 5px;">
+                      Davis (USA)
+                    </a>
                   </p>
+
                 </div>
               </div>
               <div class="mb-8 flex w-[330px] max-w-full">
@@ -2081,7 +2142,9 @@
                     How Can We Help?
                   </h5>
                   <p class="text-base text-body-color dark:text-dark-6">
-                    ping@jobbox.one
+                    <a href="mailto:ping@jobbox.one" style="text-decoration: none;">
+                      ping@jobbox.one
+                    </a>
                   </p>
                   <!-- <p class="mt-1 text-base text-body-color dark:text-dark-6">
                     contact@yourdomain.com
@@ -2100,32 +2163,32 @@
             </h3>
             <form id="contactForm">
               <div class="mb-[22px]">
-                <label for="fullName" class="mb-4 block text-sm text-body-color dark:text-dark-6">Full
+                <label for="fullName" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Full
                   Name*</label>
                 <input type="text" name="name" id="fullName" placeholder="Adam Gelius"
                   class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required />
               </div>
               <div class="mb-[22px]">
-                <label for="email" class="mb-4 block text-sm text-body-color dark:text-dark-6">Email*</label>
+                <label for="email" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Email*</label>
                 <input type="email" name="email" id="email" placeholder="example@yourmail.com"
                   class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required />
               </div>
               <div class="mb-[22px]">
-                <label for="subject" class="mb-4 block text-sm text-body-color dark:text-dark-6">Subject*</label>
+                <label for="subject" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Subject*</label>
                 <input type="text" name="subject" id="subject" placeholder="Subject of your message"
                   class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required />
               </div>
               <div class="mb-[22px]">
-                <label for="phone" class="mb-4 block text-sm text-body-color dark:text-dark-6">Phone*</label>
+                <label for="phone" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Phone*</label>
                 <input type="text" name="phone" id="phone" placeholder="+885 1254 5211 552"
                   class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required />
               </div>
               <div class="mb-[30px]">
-                <label for="message" class="mb-4 block text-sm text-body-color dark:text-dark-6">Message*</label>
+                <label for="message" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Message*</label>
                 <textarea name="message" id="message" rows="1" placeholder="Type your message here"
                   class="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required></textarea>
@@ -2530,6 +2593,60 @@
   <script src="assets/js/main.js"></script>
 
   <script src="assets/js/pricingscript.js"></script>
+
+  <!-- about -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const aboutLink = document.getElementById("aboutLink");
+      const BASE_URL = window.location.origin.includes("localhost")
+        ? "http://localhost:3001"
+        : "https://jobbox.one";
+
+      aboutLink.setAttribute("href", `${BASE_URL}/about.html`);
+      aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
+      aboutLink.setAttribute("rel", "noopener noreferrer"); // Security best practice
+    });
+  </script>
+
+  <!-- job seekers -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const aboutLink = document.getElementById("jobseekers");
+      const BASE_URL = window.location.origin.includes("localhost")
+        ? "http://localhost:3001"
+        : "https://jobbox.one";
+
+      aboutLink.setAttribute("href", `${BASE_URL}/jobSeekers.html`);
+      aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
+      aboutLink.setAttribute("rel", "noopener noreferrer"); // Security best practice
+    });
+  </script>
+  <!-- companies_nav  -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const aboutLink = document.getElementById("companies_nav ");
+      const BASE_URL = window.location.origin.includes("localhost")
+        ? "http://localhost:3001"
+        : "https://jobbox.one";
+
+      aboutLink.setAttribute("href", `${BASE_URL}/companies.html`);
+      aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
+      aboutLink.setAttribute("rel", "noopener noreferrer"); // Security best practice
+    });
+  </script>
+  <!-- about us-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const aboutLink = document.getElementById("about_us");
+      const BASE_URL = window.location.origin.includes("localhost")
+        ? "http://localhost:3001"
+        : "https://jobbox.one";
+
+      aboutLink.setAttribute("href", `${BASE_URL}/aboutUs.html`);
+      aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
+      aboutLink.setAttribute("rel", "noopener noreferrer"); // Security best practice
+    });
+  </script>
   <!-- user login and register links locally and server  -->
   <script>
     // Ensure the script runs after the DOM is fully loaded

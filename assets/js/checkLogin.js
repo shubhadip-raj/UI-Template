@@ -248,9 +248,13 @@ if (!tokenCookie ||isTokenExpired(tokenCookie)) {
             ? 'http://localhost:3000' // Local development URL
             : 'https://app.jobbox.one'; // Production URL
 
+        // const dashboardUrl = user.userRole === 'HR' ?
+        //     `${baseUrl}/hr-dashboard?userEmail=${encodeURIComponent(user.userEmail)}&userName=${encodeURIComponent(user.userName)}` :
+        //     `${baseUrl}/candidate-dashboard?userId=${encodeURIComponent(user.userId)}&userName=${encodeURIComponent(user.userName)}`;
+
         const dashboardUrl = user.userRole === 'HR' ?
-            `${baseUrl}/hr-dashboard?userEmail=${encodeURIComponent(user.userEmail)}&userName=${encodeURIComponent(user.userName)}` :
-            `${baseUrl}/candidate-dashboard?userId=${encodeURIComponent(user.userId)}&userName=${encodeURIComponent(user.userName)}`;
+        `${baseUrl}/hr-dashboard` :
+        `${baseUrl}/candidate-dashboard`;
 
         // Set both dashboard buttons
         dashboardButton.setAttribute('href', dashboardUrl);
