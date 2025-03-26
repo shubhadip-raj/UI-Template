@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="assets/css/tailwind.css" />
   <link rel="stylesheet" href="assets/css/companyCss.css" />
   <link rel="stylesheet" href="assets/css/jobs.css" />
+
   <!-- Toastify CSS -->
   <link href="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.css" rel="stylesheet">
 
@@ -23,6 +24,11 @@
   <!-- ==== WOW JS ==== -->
   <script src="assets/js/wow.min.js"></script>
   <script src="assets/js/checkLogin.js"></script>
+  <script src="/assets/js/pricingCtaAction.js"></script>
+  <script src="/assets/js/aboutnav.js"></script>
+  <script src="/assets/js/jobseekersnav.js"></script>
+  <script src="/assets/js/companiesnav.js"></script>
+  <script src="/assets/js/userLoginRegisterlinks.js"></script>
   <script>
     new WOW().init();
   </script>
@@ -55,7 +61,7 @@
               <ul class="blcok lg:flex 2xl:ml-20">
 
                 <!-- Home -->
-                <li class="group relative">
+                <li class="relative group">
                   <a href="#home"
                     class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     Home
@@ -63,15 +69,15 @@
                 </li>
 
                 <!-- Job seekers -->
-                <li class="group relative">
+                <li class="relative group">
                   <a id="jobseekers"
                     class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     Job Seekers
                   </a>
                 </li>
-                <!-- Job seekers -->
+                <!-- companies -->
                 <li class="group relative">
-                  <a id="companies_nav"
+                  <a id="companiesnavbar"
                     class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     Companies
                   </a>
@@ -99,7 +105,7 @@
                 </li>
 
                 <li class="group relative">
-                  <a id="about_us"
+                  <a id="aboutLink"
                     class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     About us
                   </a>
@@ -812,13 +818,13 @@
               <p class="mx-auto mb-6 max-w-[600px] text-base leading-[1.5] text-white" style="font-size: 20px;">For Job
                 Seekers</p>
               <a
-                class="inline-block rounded-md border border-transparent bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-[#0BB489] mb-4 Job-Seekers">
+                class="inline-block rounded-md border border-transparent bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-[#0BB489] mb-4 candidate-seekers">
                 Create your profile
               </a>
               <p class="mx-auto mb-6 max-w-[600px] text-base leading-[1.5] text-white" style="font-size: 20px;">For
                 HR/Companies</p>
               <a
-                class="inline-block rounded-md border border-transparent bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-[#0BB489] HR-Companies">
+                class="inline-block rounded-md border border-transparent bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-[#0BB489] hr-seekers">
                 Claim or Create your own Global Jobbox!
               </a>
 
@@ -846,9 +852,9 @@
       </span>
     </div>
   </section>
-
-  <script src="/assets/js/ctaActionScript.js"></script>
   <!-- ====== CTA Section End -->
+
+
   <!-- ====== Companies Section Start -->
   <section id="companies"
     class="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
@@ -930,9 +936,7 @@
         <div class="w-full px-4 md:w-1/2 lg:w-1/3">
           <div
             class="relative z-10 mb-10 overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14">
-            <!-- <p
-              class="absolute right-[-50px] top-[60px] inline-block -rotate-90 rounded-bl-md rounded-tl-md bg-primary px-5 py-2 text-base font-medium text-white">
-              Recommended</p> -->
+
             <span class="mb-5 block text-xl font-medium text-dark dark:text-white">Corporate Basic</span>
             <h2 class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
               <span class="text-xl font-medium">$</span>
@@ -992,6 +996,7 @@
       </div>
     </div>
   </section>
+
   <!-- ====== Pricing Section End -->
 
   <!-- ====== Testimonial Section Start -->
@@ -2163,32 +2168,37 @@
             </h3>
             <form id="contactForm">
               <div class="mb-[22px]">
-                <label for="fullName" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Full
+                <label for="fullName" class="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  style="text-align: left;">Full
                   Name*</label>
                 <input type="text" name="name" id="fullName" placeholder="Adam Gelius"
                   class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required />
               </div>
               <div class="mb-[22px]">
-                <label for="email" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Email*</label>
+                <label for="email" class="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  style="text-align: left;">Email*</label>
                 <input type="email" name="email" id="email" placeholder="example@yourmail.com"
                   class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required />
               </div>
               <div class="mb-[22px]">
-                <label for="subject" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Subject*</label>
+                <label for="subject" class="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  style="text-align: left;">Subject*</label>
                 <input type="text" name="subject" id="subject" placeholder="Subject of your message"
                   class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required />
               </div>
               <div class="mb-[22px]">
-                <label for="phone" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Phone*</label>
+                <label for="phone" class="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  style="text-align: left;">Phone*</label>
                 <input type="text" name="phone" id="phone" placeholder="+885 1254 5211 552"
                   class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required />
               </div>
               <div class="mb-[30px]">
-                <label for="message" class="mb-4 block text-sm text-body-color dark:text-dark-6" style="text-align: left;">Message*</label>
+                <label for="message" class="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  style="text-align: left;">Message*</label>
                 <textarea name="message" id="message" rows="1" placeholder="Type your message here"
                   class="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
                   required></textarea>
@@ -2354,27 +2364,34 @@
         <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-2/12">
           <div class="mb-10 w-full">
             <h4 class="mb-9 text-lg font-semibold text-white">
-              Our Products
+              Technologies
             </h4>
             <ul>
               <li>
-                <a href="javascript:void(0)" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
-                  LineIcons
+                <a href="https://spring.io/projects/spring-boot"
+                  class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                  Spring Boot
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
-                  Ecommerce HTML
+                <a href="https://react.dev/learn" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                  React
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
-                  TailAdmin
+                <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/"
+                  class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                  Bootstarp
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
-                  PlainAdmin
+                <a href="https://tailwindcss.com/" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                  Tailwind CSS
+                </a>
+              </li>
+              <li>
+                <a href="https://dev.mysql.com/doc/" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                  Mysql
                 </a>
               </li>
             </ul>
@@ -2406,9 +2423,9 @@
             <div class="my-1 flex justify-center md:justify-end">
               <p class="text-base text-gray-7">
                 Designed and Developed by
-                <a href="https://tailgrids.com" rel="nofollow noopner" target="_blank"
+                <a href="https://paraatech.com/jobbox/" rel="nofollow noopner" target="_blank"
                   class="text-gray-1 hover:underline">
-                  TailGrids and UIdeck
+                  Paraatech
                 </a>
               </p>
             </div>
@@ -2592,78 +2609,6 @@
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <script src="assets/js/pricingscript.js"></script>
-
-  <!-- about -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const aboutLink = document.getElementById("aboutLink");
-      const BASE_URL = window.location.origin.includes("localhost")
-        ? "http://localhost:3001"
-        : "https://jobbox.one";
-
-      aboutLink.setAttribute("href", `${BASE_URL}/about.html`);
-      aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
-      aboutLink.setAttribute("rel", "noopener noreferrer"); // Security best practice
-    });
-  </script>
-
-  <!-- job seekers -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const aboutLink = document.getElementById("jobseekers");
-      const BASE_URL = window.location.origin.includes("localhost")
-        ? "http://localhost:3001"
-        : "https://jobbox.one";
-
-      aboutLink.setAttribute("href", `${BASE_URL}/jobSeekers.html`);
-      aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
-      aboutLink.setAttribute("rel", "noopener noreferrer"); // Security best practice
-    });
-  </script>
-  <!-- companies_nav  -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const aboutLink = document.getElementById("companies_nav ");
-      const BASE_URL = window.location.origin.includes("localhost")
-        ? "http://localhost:3001"
-        : "https://jobbox.one";
-
-      aboutLink.setAttribute("href", `${BASE_URL}/companies.html`);
-      aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
-      aboutLink.setAttribute("rel", "noopener noreferrer"); // Security best practice
-    });
-  </script>
-  <!-- about us-->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const aboutLink = document.getElementById("about_us");
-      const BASE_URL = window.location.origin.includes("localhost")
-        ? "http://localhost:3001"
-        : "https://jobbox.one";
-
-      aboutLink.setAttribute("href", `${BASE_URL}/aboutUs.html`);
-      aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
-      aboutLink.setAttribute("rel", "noopener noreferrer"); // Security best practice
-    });
-  </script>
-  <!-- user login and register links locally and server  -->
-  <script>
-    // Ensure the script runs after the DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', function () {
-      const baseUrl = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://app.jobbox.one';
-
-      // Set the href attributes for the links
-      document.getElementById('registerLink').href = `${baseUrl}/hr-signup`;
-      document.getElementById('loginLink').href = `${baseUrl}/hr-sign-in`;
-      // Add click event listeners to buttons
-      // Set href attributes dynamically for Candidate Signup and Signin
-      document.querySelector('.loginBtn').href = `${baseUrl}/signin`;
-      document.querySelector('.signUpBtn').href = `${baseUrl}/candidate-signup`;
-
-    });
-  </script>
-
   <!-- browse jobs -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -2688,6 +2633,73 @@
           : "https://app.jobbox.one/jobboxcompanies";
       }
     });
+  </script>
+
+
+
+  <script>
+    // Determine the base URL based on the environment
+    const BASE_URL = window.location.origin.includes("localhost")
+      ? "http://localhost:3000"
+      : "https://app.jobbox.one";
+
+    // Function to handle "Claim HR" button click
+    function handleClaimHr() {
+      console.log("HR button clicked");
+      const userCookie = getCookie('user');
+      const tokenCookie = getCookie('token');
+
+      if (!userCookie || !tokenCookie || isTokenExpired(tokenCookie)) {
+        // User is not logged in
+        window.location.href = `${BASE_URL}/hr-sign-in`; // Redirect to sign-in page
+      } else {
+        // User is logged in
+        const user = JSON.parse(userCookie);
+        if (user.userRole === 'HR') {
+          window.location.href = `${BASE_URL}/hr-dashboard`; // Redirect to HR dashboard
+        }
+      }
+    }
+
+    // Function to handle "Join Now" button click
+    function handleJoinNowClick() {
+      console.log("candidate clicked");
+      const userCookie = getCookie('user');
+      const tokenCookie = getCookie('token');
+
+      if (!userCookie || !tokenCookie || isTokenExpired(tokenCookie)) {
+        // User is not logged in
+        window.location.href = `${BASE_URL}/signin`; // Redirect to sign-in page
+      } else {
+        // User is logged in
+        const user = JSON.parse(userCookie);
+        if (user.userRole === 'Candidate') {
+          window.location.href = `${BASE_URL}/candidate-dashboard`; // Redirect to Candidate dashboard
+        }
+      }
+    }
+
+    window.onload = function () {
+      toggleMenu();
+
+      // Add event listener to "Claim HR" button
+      const hrSeekers = document.querySelector('.hr-seekers');
+      if (hrSeekers) {
+        hrSeekers.addEventListener('click', handleClaimHr);
+      }
+
+      // Add event listener to "Join Now" button
+      const candiSeekers = document.querySelector('.candidate-seekers');
+      if (candiSeekers) {
+        candiSeekers.addEventListener('click', handleJoinNowClick);
+      }
+    };
+
+    // Also update the menu on window resize
+    window.onresize = function () {
+      toggleMenu();
+    };
+
   </script>
   <script>
     // ==== for menu scroll
