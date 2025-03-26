@@ -289,6 +289,8 @@ if (!tokenCookie ||isTokenExpired(tokenCookie)) {
 
             // Call toggleMenu() to immediately update the UI after logout
             toggleMenu();
+             // Refresh the page to reset the entire state
+    window.location.reload(); // This will refresh the page and reset the session
         };
         // Add event listeners to logout buttons inside userGreeting
         logoutButton.addEventListener('click', logoutHandler);
