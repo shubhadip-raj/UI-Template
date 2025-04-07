@@ -20,20 +20,22 @@ body {
     width: 250px;
     margin-left: 10px;
     padding-top: 0px;
-    border: 1px solid #ccc;
     padding: 10px;
     position: relative;
     cursor: pointer;
     background: #fff;
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-.card img {
+
+/* .card img {
     width: 30%;
-    height: 40%;
+    height: 30%;
     position: absolute;
     top: 5px;
     right: 10px;
-}
+} */
 
 .card-title {
     margin-top: 60px;
@@ -46,4 +48,10 @@ body {
     color: gray;
     text-align: start;
 
+}
+#latest-jobs-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 equal-width columns */
+    gap: 20px; /* Adjust space between items */
+    padding: 20px;
 }
