@@ -177,36 +177,36 @@ function getCookie(name) {
 // Helper function to check if token is expired
 const isTokenExpired = (token) => {
     try {
-      const decodedToken = JSON.parse(atob(token.split('.')[1]));  // Decode the JWT payload
-      const expiryTime = decodedToken.exp * 1000;  // Convert expiry to milliseconds
-      return Date.now() > expiryTime;  // Compare current time with token expiry time
+        const decodedToken = JSON.parse(atob(token.split('.')[1]));  // Decode the JWT payload
+        const expiryTime = decodedToken.exp * 1000;  // Convert expiry to milliseconds
+        return Date.now() > expiryTime;  // Compare current time with token expiry time
     } catch (error) {
-      console.error('Error decoding token', error);
-      return true;  // In case of any error in decoding, treat token as expired
+        console.error('Error decoding token', error);
+        return true;  // In case of any error in decoding, treat token as expired
     }
-  };
+};
 // Function to toggle the menus based on screen size and user login status
 function toggleMenu() {
     const userCookie = getCookie('user');
     const tokenCookie = getCookie('token');
-     // If no token or user data exists, or the token is expired, clear cookies and redirect to login page
-if (!tokenCookie ||isTokenExpired(tokenCookie)) {
-    const clearCookies = () => {
-        const domain = window.location.hostname === 'localhost' ? 'localhost' : 'jobbox.one';
-        // Clear user and token cookies by setting their expiration date to the past
-        document.cookie = `user=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
-        document.cookie = `token=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
-    };
-    
-    // Call clearCookies to delete cookies
-    clearCookies();
-    
-    // // Redirect to the homepage
-    // window.location.href = '/'; // Redirect to the homepage
+    // If no token or user data exists, or the token is expired, clear cookies and redirect to login page
+    if (!tokenCookie || isTokenExpired(tokenCookie)) {
+        const clearCookies = () => {
+            const domain = window.location.hostname === 'localhost' ? 'localhost' : 'jobbox.one';
+            // Clear user and token cookies by setting their expiration date to the past
+            document.cookie = `user=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+            document.cookie = `token=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+        };
 
-    return;  // Don't proceed further
-}
-    const isMobile = window.innerWidth < 1024;
+        // Call clearCookies to delete cookies
+        clearCookies();
+
+        // // Redirect to the homepage
+        // window.location.href = '/'; // Redirect to the homepage
+
+        return;  // Don't proceed further
+    }
+     const isMobile = window.innerWidth < 1024;
     const candidateMenu = document.getElementById('candidateMenu');
     const welcomeUserMenu = document.getElementById('welcomeUserMenu');
     const authButtons = document.getElementById('authButtons');
@@ -227,18 +227,22 @@ if (!tokenCookie ||isTokenExpired(tokenCookie)) {
             candidateMenu.style.display = 'none'; // Hide Candidate menu
             welcomeUserMenu.style.display = 'block'; // Show Welcome User menu
             employeeMenu.style.display = 'none'; // Hide Employee menu (if user is logged in)
+           welcomeMessage1.textContent = `Welcome ${user.userName}`;
+           userGreeting.style.display = 'none';
         } else {
             // For non-mobile view (desktop or larger screens)
             candidateMenu.style.display = 'none';
             welcomeUserMenu.style.display = 'none';
             employeeMenu.style.display = 'none'; // Hide Employee menu (if user is logged in)
+            welcomeMessage.textContent = `Welcome ${user.userName}`;
+            userGreeting.style.display = 'block';
         }
         // Hide login/register buttons
         authButtons.style.display = 'none';
         // Show welcome message and dashboard button
-        userGreeting.style.display = 'block';
-        welcomeMessage.textContent = `Welcome ${user.userName}`;
-        welcomeMessage1.textContent = `Welcome ${user.userName}`;
+       // userGreeting.style.display = 'block';
+       //welcomeMessage.textContent = `Welcome ${user.userName}`;
+       
         // Set dashboard link based on user role
         // const dashboardUrl = user.userRole === 'HR' ?
         //     `https://app.jobbox.one/hr-dashboard?userEmail=${encodeURIComponent(user.userEmail)}&userName=${encodeURIComponent(user.userName)}` :
@@ -253,8 +257,8 @@ if (!tokenCookie ||isTokenExpired(tokenCookie)) {
         //     `${baseUrl}/candidate-dashboard?userId=${encodeURIComponent(user.userId)}&userName=${encodeURIComponent(user.userName)}`;
 
         const dashboardUrl = user.userRole === 'HR' ?
-        `${baseUrl}/hr-dashboard` :
-        `${baseUrl}/candidate-dashboard`;
+            `${baseUrl}/hr-dashboard` :
+            `${baseUrl}/candidate-dashboard`;
 
         // Set both dashboard buttons
         dashboardButton.setAttribute('href', dashboardUrl);
@@ -289,8 +293,8 @@ if (!tokenCookie ||isTokenExpired(tokenCookie)) {
 
             // Call toggleMenu() to immediately update the UI after logout
             toggleMenu();
-             // Refresh the page to reset the entire state
-    window.location.reload(); // This will refresh the page and reset the session
+            // Refresh the page to reset the entire state
+            window.location.reload(); // This will refresh the page and reset the session
         };
         // Add event listeners to logout buttons inside userGreeting
         logoutButton.addEventListener('click', logoutHandler);

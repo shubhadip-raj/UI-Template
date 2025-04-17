@@ -17,25 +17,17 @@ body {
 }
 
 .card {
-    width: 250px;
-    margin-left: 10px;
+    width: 100%; /* Make it 100% for smaller screens */
+    max-width: 250px; /* Limit the maximum width */
+    margin: 10px;
     padding-top: 0px;
     padding: 10px;
     position: relative;
     cursor: pointer;
     background: #fff;
-    border-radius: 5px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-
-/* .card img {
-    width: 30%;
-    height: 30%;
-    position: absolute;
-    top: 5px;
-    right: 10px;
-} */
 
 .card-title {
     margin-top: 60px;
@@ -47,11 +39,50 @@ body {
 .card-subtitle {
     color: gray;
     text-align: start;
-
 }
+
 #latest-jobs-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 equal-width columns */
-    gap: 20px; /* Adjust space between items */
+    grid-template-columns: repeat(5, 1fr); /* Default to 5 equal-width columns */
+    gap: 20px;
     padding: 20px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet screens (>= 600px) */
+@media (max-width: 1024px) {
+    #latest-jobs-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on smaller screens */
+    }
+}
+
+/* Mobile screens (>= 500px) */
+@media (max-width: 600px) {
+    #latest-jobs-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
+
+    .card {
+        max-width: 100%; /* Allow cards to take up full width */
+    }
+
+    .card-title {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+}
+
+/* Extra small screens (smaller than 500px) */
+@media (max-width: 500px) {
+    #latest-jobs-container {
+        grid-template-columns: 1fr; /* Single column layout on very small screens */
+    }
+
+    .card {
+        max-width: 100%; /* Allow cards to take up full width */
+    }
+
+    .card-title {
+        font-size: 12px; /* Reduce font size even more */
+    }
 }
