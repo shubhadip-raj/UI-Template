@@ -1,11 +1,12 @@
 {
   "name": "play-tailwind",
   "version": "2.0.0",
-  "description": "",
+  "description": "Play is an open-source and free Tailwind CSS template co-created by TailGrids and UIdeck. This template specially crafted for SaaS, startup, business and software website.\r Play crafted in a way that you can use with almost all sort of web project. This is Tailwind CSS template built using [TailGrids](https://tailgrids.com/) components.",
   "main": "tailwind.config.js",
   "scripts": {
     "build": "npm run build-css",
-    "build-css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css -w"
+    "build-css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css -w",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,11 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
+    "express": "^5.1.0",
     "postcss": "^8.5.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/uideck/play-tailwind/issues"
+  },
+  "homepage": "https://github.com/uideck/play-tailwind#readme"
 }

@@ -162,11 +162,9 @@ function displayImages() {
     const gridContainer = document.getElementById('image-section');
     gridContainer.innerHTML = ""; // Clear previous images if any
 
-    // Split images into two groups: first row (5 images) and second row (remaining images)
-    const row1Images = images.slice(0, 5);
-    const row2Images = images.slice(5, 10);
+    const row1Images = images.slice(0, 4);
+    const row2Images = images.slice(4, 8);
 
-    // Create the first row
     const row1 = document.createElement('div');
     row1.classList.add('image-row');
     row1Images.forEach((img, index) => {
@@ -175,7 +173,6 @@ function displayImages() {
     });
     gridContainer.appendChild(row1);
 
-    // Create the second row
     const row2 = document.createElement('div');
     row2.classList.add('image-row');
     row2Images.forEach((img, index) => {
@@ -184,6 +181,7 @@ function displayImages() {
     });
     gridContainer.appendChild(row2);
 }
+
 
 // Create an image div element
 function createImageDiv(src, index) {
