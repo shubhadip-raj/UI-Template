@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url><loc>https://jobbox.one/</loc></url>
-   <url><loc>https://jobbox.one/about.html</loc></url>
-   <url><loc>https://jobbox.one/companies.html</loc></url>
-   <url><loc>https://jobbox.one/jobseekers.html</loc></url>
-   <url><loc>https://app.jobbox.one/hr-signup</loc></url>
-   <url><loc>https://app.jobbox.one/hr-sign-in</loc></url>
-   <url><loc>https://app.jobbox.one/candidate-signup</loc></url>
-   <url><loc>https://app.jobbox.one/signin</loc></url>
-   <url><loc>https://app.jobbox.one/browse-jobs</loc></url>
-   <url><loc>https://app.jobbox.one/jobbox-companies-sitemap.xml</loc></url>
-   <url><loc>https://app.jobbox.one/jobbox-jobs-sitemap.xml</loc></url>
-  </urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://jobbox.one/</loc></url>
+  <url><loc>https://jobbox.one/about.html</loc></url>
+  <url><loc>https://jobbox.one/companies.html</loc></url>
+  <url><loc>https://jobbox.one/jobseekers.html</loc></url>
+  <url><loc>https://app.jobbox.one/hr-signup</loc></url>
+  <url><loc>https://app.jobbox.one/hr-sign-in</loc></url>
+  <url><loc>https://app.jobbox.one/candidate-signup</loc></url>
+  <url><loc>https://app.jobbox.one/signin</loc></url>
+  <url><loc>https://app.jobbox.one/browse-jobs</loc></url>
+  <url><loc>https://app.jobbox.one/jobbox-companies-sitemap.xml</loc></url>
+  <url><loc>https://app.jobbox.one/jobbox-jobs-sitemap.xml</loc></url>
+</urlset>
