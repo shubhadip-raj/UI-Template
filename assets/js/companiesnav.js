@@ -6,6 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
       : "https://jobbox.one";
 
       companiesnavbar.setAttribute("href", `${BASE_URL}/companies.html`);
-      companiesnavbar.setAttribute("target", "_blank");  // Opens in a new tab
+      // companiesnavbar.setAttribute("target", "_blank");  // Opens in a new tab
       companiesnavbar.setAttribute("rel", "noopener noreferrer"); // Security best practice
 });
