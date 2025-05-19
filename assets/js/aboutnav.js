@@ -6,6 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
         : "https://jobbox.one";
 
     aboutLink.setAttribute("href", `${BASE_URL}/about.html`);
-    aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
+    // aboutLink.setAttribute("target", "_blank");  // Opens in a new tab
     aboutLink.setAttribute("rel", "noopener noreferrer"); // Security best practice
 });

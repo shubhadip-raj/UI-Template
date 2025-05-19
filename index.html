@@ -6,9 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Play | Free Tailwind CSS Template for Startup and SaaS By TailGrids -->
-  <title>
-    Jobbox
-  </title>
+  <title>Jobbox.one - Reimagining the way companies & seekers connect for jobs</title>
+  <meta name="title" content="Jobbox.one - Reimagining the way companies &amp; seekers connect for jobs">
+  <meta name="description"
+    content="Jobbox offers unified global system for Applicants and Companies to interact with a universally unique job-box to all companies and applicant side tracker tools. And, thereby taking the access to next level with added transparency and boosting quality.">
+  <meta name="keywords"
+    content="Jobs, Jobsearch, HR, HIring, Recruitment, AI matching for jobs, Dream jobs, Green job postings, Stealth job profile">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/animate.css" />
@@ -29,6 +35,7 @@
   <script src="/assets/js/jobseekersnav.js"></script>
   <script src="/assets/js/companiesnav.js"></script>
   <script src="/assets/js/userLoginRegisterlinks.js"></script>
+  <script src="/assets/js/browseJobs.js"></script>
   <script>
     new WOW().init();
   </script>
@@ -67,7 +74,13 @@
                     Home
                   </a>
                 </li>
-
+                <!--About Us-->
+                <li class="group relative">
+                  <a id="aboutLink"
+                    class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+                    About us
+                  </a>
+                </li>
                 <!-- Job seekers -->
                 <li class="relative group">
                   <a id="jobseekers"
@@ -98,18 +111,13 @@
 
                 <!-- Jobs -->
                 <li class="group relative">
-                  <a href="#jobs"
-                    class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+                  <a href="#" id="browseJobsLink"
+                    class=" mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     Jobs
                   </a>
                 </li>
 
-                <li class="group relative">
-                  <a id="aboutLink"
-                    class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
-                    About us
-                  </a>
-                </li>
+
                 <!-- Companies -->
                 <!-- <li class="group relative">
                   <a href="#companies"
@@ -665,7 +673,7 @@
                 found by those seeking them.
               </p>
               <!-- target="_blank" -->
-              <a href="/about.html"  rel="noopener noreferrer"
+              <a href="/about.html" rel="noopener noreferrer"
                 class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white hover:border-blue-dark hover:bg-blue-dark">
                 Know More
               </a>
@@ -763,12 +771,12 @@
             <h2 class="mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
               Recent Jobs
             </h2>
-            <h3>
+            <!-- <h3>
               <a href="#" id="browseJobsLink"
               class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white">
                 View more Jobs
               </a>
-            </h3>
+            </h3> -->
             <!-- <p class="text-base text-body-color dark:text-dark-6">
               There are many variations of passages of Lorem Ipsum available
               but the majority have suffered alteration in some form.
@@ -871,7 +879,7 @@
             <h3>
               <!-- target="_blank" -->
               <a id="companiesLink" href="#" rel="noopener noreferrer"
-              class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white">
+                class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white">
                 View more companies
               </a>
 
@@ -1005,8 +1013,9 @@
   <!-- ====== Pricing Section End -->
 
   <!-- ====== Testimonial Section Start -->
-  <section id="testimonials" class="overflow-hidden bg-gray-1 py-20 dark:bg-dark-2 md:py-[120px]"   style="background-color: #ebe1f5;">
-    <div class="container mx-auto" >
+  <section id="testimonials" class="overflow-hidden bg-gray-1 py-20 dark:bg-dark-2 md:py-[120px]"
+    style="background-color: #ebe1f5;">
+    <div class="container mx-auto">
       <div class="-mx-4 flex flex-wrap justify-center">
         <div class="w-full px-4">
           <div class="mx-auto mb-[60px] max-w-[485px] text-center">
@@ -2092,9 +2101,10 @@
   ====== Blog Section End -->
 
   <!-- ====== Contact Start ====== -->
-  <section id="contact" class="relative py-20 md:py-[120px]" >
+  <section id="contact" class="relative py-20 md:py-[120px]">
     <div class="absolute left-0 top-0 -z-[1] h-full w-full dark:bg-dark"></div>
-    <div class="absolute left-0 top-0 -z-[1] h-1/2 w-full bg-[#E9F9FF] dark:bg-dark-700 lg:h-[45%] xl:h-1/2"style="background-color: #ebe1f5;"></div>
+    <div class="absolute left-0 top-0 -z-[1] h-1/2 w-full bg-[#E9F9FF] dark:bg-dark-700 lg:h-[45%] xl:h-1/2"
+      style="background-color: #ebe1f5;"></div>
     <div class="container px-4">
       <div class="-mx-4 flex flex-wrap items-center">
         <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
@@ -2366,42 +2376,45 @@
             </ul>
           </div>
         </div>
-        <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-2/12">
+        <!-- <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-2/12">
           <div class="mb-10 w-full">
             <h4 class="mb-9 text-lg font-semibold text-white">
               Technologies
             </h4>
             <ul>
               <li>
-                <a href="https://spring.io/projects/spring-boot"  target="_blank"
+                <a href="https://spring.io/projects/spring-boot" target="_blank"
                   class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   Spring Boot
                 </a>
               </li>
               <li>
-                <a href="https://react.dev/learn"  target="_blank" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                <a href="https://react.dev/learn" target="_blank"
+                  class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   React
                 </a>
               </li>
               <li>
-                <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/"  target="_blank"
+                <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank"
                   class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   Bootstarp
                 </a>
               </li>
               <li>
-                <a href="https://tailwindcss.com/"  target="_blank" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                <a href="https://tailwindcss.com/" target="_blank"
+                  class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   Tailwind CSS
                 </a>
               </li>
               <li>
-                <a href="https://dev.mysql.com/doc/"  target="_blank" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                <a href="https://dev.mysql.com/doc/" target="_blank"
+                  class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   Mysql
                 </a>
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>
@@ -2614,19 +2627,9 @@
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <!-- browse jobs -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const browseJobsLink = document.getElementById("browseJobsLink");
-      const baseUrl = window.location.hostname === "localhost"
-        ? "http://localhost:3000/browse-jobs"
-        : "https://app.jobbox.one/browse-jobs";
+  
 
-      browseJobsLink.href = baseUrl;
-    });
-  </script>
-
-
+ 
   <!-- companies -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
