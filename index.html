@@ -111,18 +111,13 @@
 
                 <!-- Jobs -->
                 <li class="group relative">
-                  <a href="#jobs"
-                    class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+                  <a href="#" id="browseJobsLink"
+                    class=" mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     Jobs
                   </a>
                 </li>
 
-                <li class="group relative">
-                  <a id="aboutLink"
-                    class="mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
-                    About us
-                  </a>
-                </li>
+
                 <!-- Companies -->
                 <!-- <li class="group relative">
                   <a href="#companies"
@@ -168,6 +163,7 @@
 
                 <!-- This part will show if the user is not logged in (visible on mobile)
                 class="relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">   -->
+
                 <li id="candidateMenu" class="submenu-item group relative lg:hidden">
                   <a href="javascript:void(0)"
                     class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
@@ -775,12 +771,12 @@
             <h2 class="mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
               Recent Jobs
             </h2>
-            <h3>
+            <!-- <h3>
               <a href="#" id="browseJobsLink"
                 class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white">
                 View more Jobs
               </a>
-            </h3>
+            </h3> -->
             <!-- <p class="text-base text-body-color dark:text-dark-6">
               There are many variations of passages of Lorem Ipsum available
               but the majority have suffered alteration in some form.
@@ -1312,16 +1308,13 @@
                 What is a jobbox?
               </h3>
               <p class="text-base text-body-color dark:text-dark-6" style="text-align: left;">
-                Job box is a unique cloud box created for every company by anyone - a candidate or a company HR or well
-                wisher. It has identity like email company@jobbox.one (say for microsoft.com - its microsoft@jobbox.one,
-                if microsoft.ai, its microsoft.ai@jobbox.one). Once the box is created, anyone in the world can post to
-                this box his application. Whereas someone from HR can claim the box and we allow access to it after
-                authentication ensuring you are seen by the HR.
-
-                Do I know if the HR or someone in the company has acted on my resume?
-                Yes, that's what we offer as base analytics for job seekers; you know when someone acts on your resume.
-                Moreover, we reward good resumes and candidates by giving them credits to allow more applications. And
-                same for HR—if they act proactively, they get credits to do more with Jobbox.
+                Jobbox is a unique cloud-based inbox created for every company—by anyone: a candidate, an HR professional, or even a well-wisher. 
+                Each company has a unique identity, similar to an email address, like company@jobbox.one. For example, for Microsoft, 
+                it could be microsoft@jobbox.one (for microsoft.com) or microsoft.ai@jobbox.one (for microsoft.ai).
+                Once a box is created, anyone in the world can submit their application to it. Meanwhile, someone from the company’s
+                HR team can claim the box. After successful authentication, we grant them access—ensuring your application is visible to the right people.
+                Do you get to know if someone in HR has viewed or acted on your resume? Yes. We offer built-in analytics for job seekers, so you’re notified when your resume gets attention.
+                What’s more, we reward strong resumes and proactive candidates by giving them credits, allowing them to submit more applications. HR teams are rewarded too—when they act proactively, they earn credits to unlock more features on Jobbox.
               </p>
 
             </div>
@@ -1344,9 +1337,9 @@
               </h3>
               <p class="text-base text-body-color dark:text-dark-6" style="text-align: left;">
                 Companies are always hiring good candidates, but many job
-                portals allow only time bound listings. We
-                based on feedback from many HR and companies solved this by
-                offering an optiont to pos “evergreen jobs”
+                portals allow only time-bound listings. We
+                based on feedback from HR professionals and companies solved this by
+                offering an optiont to post “evergreen jobs”
                 these jobs never expire.
               </p>
             </div>
@@ -1370,14 +1363,10 @@
                 What are Ai matched jobs?
               </h3>
               <p class="text-base text-body-color dark:text-dark-6" style="text-align: left;">
-                AI matches allow you to find more jobs suitable for you right
-                from jobbox. These are simply links we
-                have found across the web which are matching your profile and
-                preferences. For better results its
-                recommended you finish your job preferences and choices in the
-                jobbox account. You can select plethora
-                of options and choices here, even mark companies whom you dot
-                wish to show/share your profile.
+                AI Matches help you discover more job opportunities that suit your profile—right from within Jobbox. 
+                These are simply links to job postings we've found across the web that match your profile and preferences.
+                For better results, we recommend completing your job preferences and choices in your Jobbox account. 
+                You can select from a wide range of options—even mark companies you don't wish to share your profile with.
               </p>
             </div>
           </div>
@@ -1398,13 +1387,11 @@
                 What’s a dream job?
               </h3>
               <p class="text-base text-body-color dark:text-dark-6" style="text-align: left;">
-                As they say you should marry who wants to marry you, alike
-                this dream job options allow seekers post
-                their profiles as resumes or stealth profiles to companies of
-                their choice across the world. This is
-                shown to companies too as seekers who dream about joining you
-                giving you some preference while selecting
-                / shortlisting.
+                As the saying goes, you should marry someone who wants to marry you. 
+                In a similar way, Dream Job options allow job seekers to share their 
+                profiles—either as visible resumes or stealth (private) profiles—with companies of their choice, anywhere in the world.
+                These preferences are also shown to companies, highlighting candidates who dream of working with them. This gives those 
+                candidates a slight edge during shortlisting and selection.
               </p>
             </div>
           </div>
