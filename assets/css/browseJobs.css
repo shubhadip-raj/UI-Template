@@ -212,3 +212,7 @@ body {
     background-color: #bd25eb; /* darker blue */
     box-shadow: 0 6px 14px rgba(162, 37, 235, 0.6);
   }
+
+  .pageSizeSelect{
+    left: 20px;
+  }

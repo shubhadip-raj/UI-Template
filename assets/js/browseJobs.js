@@ -25,6 +25,24 @@ document.getElementById('searchButton').addEventListener('click', () => {
   fetchJobs();
 });
 
+// Add input event listener to handle clearing the search
+document.getElementById('searchInput').addEventListener('input', (event) => {
+  if (event.target.value.trim() === '') {
+    search = '';
+    searchPage = 0;
+    fetchJobs();
+  }
+});
+
+// Add keypress event listener for Enter key
+document.getElementById('searchInput').addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    const inputEl = document.getElementById('searchInput');
+    search = inputEl.value.trim();
+    searchPage = 0;
+    fetchJobs();
+  }
+});
 
 // // ✅ Ensure jobs load after DOM is ready
 // document.addEventListener('DOMContentLoaded', () => {
@@ -73,7 +91,7 @@ async function fetchCompanyLogo(companyName) {
     return `data:image/jpeg;base64,${base64}`;
   } catch (error) {
     console.error('Error fetching company logo for:', companyName);
-    //return "https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg";
+    return "https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg";
   }
 }
 function renderJobs() {
@@ -91,9 +109,12 @@ function renderJobs() {
   jobs.forEach(job => {
     const div = document.createElement('div');
     div.className = 'job-card';
+    const logoUrl = companyLogos[job.companyName] || 'https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg';
+    console.log('Company:', job.companyName, 'Logo URL:', logoUrl);
+    
     div.innerHTML = `
       <div class="job-header">
-        <img class="company-logo" src="${companyLogos[job.companyName] || defaultLogoUrl}" alt="${job.companyName} Logo" />
+        <img class="company-logo" src="${logoUrl}" alt="${job.companyName} Logo" onerror="this.onerror=null; this.src='https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg';" />
         <span class="company-name">${job.companyName}</span>
       </div>
       <h3 class="job-title">${job.jobTitle}</h3>
@@ -138,7 +159,7 @@ function createJobCard(job, companyLogos) {
   `;
 
   const logoImg = document.createElement('img');
-  logoImg.src = companyLogos[job.companyName] || "https://via.placeholder.com/100x100?text=Logo";
+  logoImg.src = companyLogos[job.companyName] || "https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg";
   logoImg.alt = `${job.companyName} logo`;
   logoImg.style.cssText = `
     width: 30%;
@@ -203,13 +224,16 @@ function createJobCard(job, companyLogos) {
 function renderPagination() {
   const container = document.getElementById('paginationControls');
   container.innerHTML = '';
+  container.className = 'pagination-container d-flex justify-content-end align-items-center';
+  container.style.cssText = 'display: flex; justify-content: flex-end; align-items: flex-end;';
 
   // Always render page size dropdown
   const pageSizeWrapper = document.createElement('div');
-  pageSizeWrapper.className = 'page-size-select';
+  pageSizeWrapper.className = 'page-size-select me-3';
+  pageSizeWrapper.style.cssText = 'margin-right: 1rem; margin-bottom: 4px;';
   pageSizeWrapper.innerHTML = `
-    <label for="pageSizeSelect">Show Entries:</label>
-    <select id="pageSizeSelect">
+    <label for="pageSizeSelect" style="color: black; font-size: 14px;">Show Entries:</label>
+    <select id="pageSizeSelect" style="color: black; font-size: 14px; padding: 4px; border: 1px solid #ccc; border-radius: 4px; margin-left: 8px;">
       <option value="20" ${searchPageSize === 20 ? 'selected' : ''}>20</option>
       <option value="40" ${searchPageSize === 40 ? 'selected' : ''}>40</option>
       <option value="60" ${searchPageSize === 60 ? 'selected' : ''}>60</option>
@@ -223,71 +247,109 @@ function renderPagination() {
     fetchJobs();
   });
 
-  // Only show pagination controls if more than 1 page
-  if (totalPages <= 1) return;
-
-  const paginationWrapper = document.createElement('div');
+  // Always show pagination controls
+  const paginationWrapper = document.createElement('ul');
   paginationWrapper.className = 'pagination';
+  paginationWrapper.setAttribute('role', 'navigation');
+  paginationWrapper.setAttribute('aria-label', 'Pagination');
+  paginationWrapper.style.cssText = 'display: flex; list-style: none; padding: 0; margin: 0; gap: 4px;';
 
   // Previous Button
-  const prevBtn = document.createElement('button');
+  const prevLi = document.createElement('li');
+  prevLi.className = 'previous' + (searchPage === 0 ? ' disabled' : '');
+  const prevBtn = document.createElement('a');
   prevBtn.textContent = 'Previous';
-  prevBtn.disabled = searchPage === 0;
+  prevBtn.style.cssText = 'padding: 6px 12px; background: white; color:#663399; border-radius: 4px; cursor: pointer; font-size: 12px; text-decoration: none; display: block;';
+  prevBtn.setAttribute('role', 'button');
+  prevBtn.setAttribute('aria-label', 'Previous page');
+  prevBtn.setAttribute('rel', 'prev');
+  if (searchPage === 0) {
+    prevBtn.setAttribute('aria-disabled', 'true');
+    prevBtn.setAttribute('tabindex', '-1');
+  }
   prevBtn.onclick = () => {
     if (searchPage > 0) {
       searchPage--;
       fetchJobs();
     }
   };
-  paginationWrapper.appendChild(prevBtn);
+  prevLi.appendChild(prevBtn);
+  paginationWrapper.appendChild(prevLi);
 
   const createPageButton = (pageNum) => {
-    const span = document.createElement('span');
-    span.textContent = pageNum + 1;
-    span.className = 'page-number' + (searchPage === pageNum ? ' active' : '');
-    span.onclick = () => {
+    const li = document.createElement('li');
+    li.className = searchPage === pageNum ? 'active' : '';
+    const a = document.createElement('a');
+    a.textContent = pageNum + 1;
+    a.style.cssText = `
+      padding: 6px 12px;
+      cursor: pointer;
+      color:#663399;
+      border: 1px solid #663399;
+      border-radius: 4px;
+      text-decoration: none;
+      display: block;
+      font-size:10px;
+      ${searchPage === pageNum ? 'background:#663399; color: white;' : ''}
+    `;
+    a.setAttribute('role', 'button');
+    a.setAttribute('aria-label', `Page ${pageNum + 1}`);
+    if (searchPage === pageNum) {
+      a.setAttribute('aria-current', 'page');
+    }
+    a.onclick = () => {
       searchPage = pageNum;
       fetchJobs();
     };
-    return span;
+    li.appendChild(a);
+    return li;
   };
 
   const addEllipsis = () => {
-    const ellipsis = document.createElement('span');
-    ellipsis.textContent = '...';
-    ellipsis.className = 'ellipsis';
-    paginationWrapper.appendChild(ellipsis);
+    const li = document.createElement('li');
+    li.className = 'break-me';
+    const a = document.createElement('a');
+    a.textContent = '...';
+    a.style.cssText = 'padding: 6px 12px; color: #663399; text-decoration: none; display: block;';
+    a.setAttribute('role', 'button');
+    a.setAttribute('aria-label', 'Jump forward');
+    li.appendChild(a);
+    paginationWrapper.appendChild(li);
   };
 
-  const maxDisplay = 5;
-  const start = Math.max(0, searchPage - 1);
-  const end = Math.min(totalPages, start + maxDisplay);
-
-  if (start > 0) {
-    paginationWrapper.appendChild(createPageButton(0));
-    if (start > 1) addEllipsis();
+  // Always show at least first two pages
+  paginationWrapper.appendChild(createPageButton(0));
+  if (totalPages > 1) {
+    paginationWrapper.appendChild(createPageButton(1));
   }
 
-  for (let i = start; i < end; i++) {
-    paginationWrapper.appendChild(createPageButton(i));
-  }
-
-  if (end < totalPages) {
-    if (end < totalPages - 1) addEllipsis();
+  // Show ellipsis if there are more pages
+  if (totalPages > 2) {
+    addEllipsis();
     paginationWrapper.appendChild(createPageButton(totalPages - 1));
   }
 
   // Next Button
-  const nextBtn = document.createElement('button');
+  const nextLi = document.createElement('li');
+  nextLi.className = 'next' + (searchPage >= totalPages - 1 ? ' disabled' : '');
+  const nextBtn = document.createElement('a');
   nextBtn.textContent = 'Next';
-  nextBtn.disabled = searchPage >= totalPages - 1;
+  nextBtn.style.cssText = 'padding: 6px 12px; background: white; color:#663399; border-radius: 4px; cursor: pointer; font-size: 12px; text-decoration: none; display: block;';
+  nextBtn.setAttribute('role', 'button');
+  nextBtn.setAttribute('aria-label', 'Next page');
+  nextBtn.setAttribute('rel', 'next');
+  if (searchPage >= totalPages - 1) {
+    nextBtn.setAttribute('aria-disabled', 'true');
+    nextBtn.setAttribute('tabindex', '-1');
+  }
   nextBtn.onclick = () => {
     if (searchPage < totalPages - 1) {
       searchPage++;
       fetchJobs();
     }
   };
-  paginationWrapper.appendChild(nextBtn);
+  nextLi.appendChild(nextBtn);
+  paginationWrapper.appendChild(nextLi);
 
   container.appendChild(paginationWrapper);
 }
