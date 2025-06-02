@@ -126,7 +126,8 @@ function renderJobs() {
     `;
 
     const logoUrl = companyLogos[job.companyName] || 'https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg';
-    
+    console.log('Company:', job.companyName, 'Logo URL:', logoUrl);
+
     div.innerHTML = `
       <div class="job-header d-flex align-items-center mb-2" style="height: 40px; min-height: 40px;">
         <img class="company-logo" src="${logoUrl}" alt="${job.companyName} Logo" 
@@ -190,7 +191,7 @@ function createJobCard(job, companyLogos) {
     right: 10px;
     cursor: pointer;
   `;
-  logoImg.onclick = () => { 
+  logoImg.onclick = () => {
     const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(job.companyName)}`;
     window.location.href = companyUrl;
   };
@@ -233,8 +234,8 @@ function createJobCard(job, companyLogos) {
     color: #666;
   `;
 
-  card.appendChild(logoImg);
   card.appendChild(subtitle);
+  card.appendChild(logoImg);
   card.appendChild(title);
   card.appendChild(text);
 
