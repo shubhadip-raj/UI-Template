@@ -1,13 +1,3 @@
-//  document.addEventListener("DOMContentLoaded", function () {
-//       const browseJobsLink = document.getElementById("browseJobsLink");
-//       const baseUrl = window.location.hostname === "localhost"
-//         ? "http://localhost:3000/browse-jobs"
-//         : "https://app.jobbox.one/browse-jobs";
-
-//       browseJobsLink.href = baseUrl;
-//       browseJobsLink.setAttribute("target","_black")
-//     });
-
 const baseUrl = window.location.hostname === "localhost"
   ? "http://localhost:3000"
   : "https://app.jobbox.one";
@@ -43,11 +33,6 @@ document.getElementById('searchInput').addEventListener('keypress', (event) => {
     fetchJobs();
   }
 });
-
-// // ✅ Ensure jobs load after DOM is ready
-// document.addEventListener('DOMContentLoaded', () => {
-//   fetchJobs();
-// });
 
 async function fetchJobs() {
   const endpoint = search
@@ -103,23 +88,57 @@ function renderJobs() {
     return;
   }
 
-  const grid = document.createElement('div');
-  grid.className = 'job-grid';
+  // Create main container with Bootstrap classes
+  const mainContainer = document.createElement('div');
+  mainContainer.className = 'container-fluid';
+  mainContainer.style.padding = '20px';
+
+  // Create row with fixed 4-column layout
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.style.cssText = 'display: flex; flex-wrap: wrap; margin: 0 -10px;';
 
   jobs.forEach(job => {
+    // Create column with fixed width for 4 cards per row
+    const col = document.createElement('div');
+    col.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
+    col.style.cssText = `
+      padding: 10px;
+      width: 25%;
+      flex: 0 0 25%;
+      max-width: 25%;
+    `;
+
     const div = document.createElement('div');
     div.className = 'job-card';
+    div.style.cssText = `
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      height: 180px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    `;
+
     const logoUrl = companyLogos[job.companyName] || 'https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg';
-    console.log('Company:', job.companyName, 'Logo URL:', logoUrl);
     
     div.innerHTML = `
-      <div class="job-header">
-        <img class="company-logo" src="${logoUrl}" alt="${job.companyName} Logo" onerror="this.onerror=null; this.src='https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg';" />
-        <span class="company-name">${job.companyName}</span>
+      <div class="job-header d-flex align-items-center mb-2" style="height: 40px; min-height: 40px;">
+        <img class="company-logo" src="${logoUrl}" alt="${job.companyName} Logo" 
+          style="width: 40px; height: 40px; object-fit: contain; margin-right: 8px; flex-shrink: 0;"
+          onerror="this.onerror=null; this.src='https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg';" />
+        <span class="company-name fw-bold text-truncate" style="font-size: 0.9rem;">${job.companyName}</span>
       </div>
-      <h3 class="job-title">${job.jobTitle}</h3>
-      <small class="posting-date">${calculateDaysAgo(job.postingDate)}</small>
+      <h3 class="job-title h6 mb-2 text-truncate" style="font-size: 0.95rem; height: 24px; min-height: 24px;">${job.jobTitle}</h3>
+      <small class="posting-date text-muted" style="font-size: 0.8rem; position: absolute; bottom: 12px;">${calculateDaysAgo(job.postingDate)}</small>
     `;
+
+    // Add click handlers
     div.querySelector('.company-logo').onclick = () => {
       const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(job.companyName)}`;
       window.location.href = companyUrl;
@@ -136,10 +155,12 @@ function renderJobs() {
       window.location.href = jobUrl;
     };
 
-    grid.appendChild(div);
+    col.appendChild(div);
+    row.appendChild(col);
   });
 
-  container.appendChild(grid);
+  mainContainer.appendChild(row);
+  container.appendChild(mainContainer);
 }
 
 function createJobCard(job, companyLogos) {
