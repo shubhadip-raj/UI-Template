@@ -128,11 +128,16 @@ function renderJobs() {
       const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(job.companyName)}`;
       window.location.href = companyUrl;
     };
+    // div.querySelector('.job-title').onclick = () => {
+    //   const jobUrl = `${baseUrl}/browse-jobs/job-details?` + new URLSearchParams({
+    //     companyName: job.companyName,
+    //     jobId: job.jobId
+    //   }).toString();
+    //   window.location.href = jobUrl;
+    // };
     div.querySelector('.job-title').onclick = () => {
-      const jobUrl = `${baseUrl}/browse-jobs/job-details?` + new URLSearchParams({
-        companyName: job.companyName,
-        jobId: job.jobId
-      }).toString();
+      const slug = `${job.jobId}-${job.jobTitle.replace(/\s+/g, '-').toLowerCase()}-${job.companyName.replace(/\s+/g, '-').toLowerCase()}`;
+      const jobUrl = `${baseUrl}/browse-jobs/job-details/${slug}`;
       window.location.href = jobUrl;
     };
 
@@ -194,15 +199,24 @@ function createJobCard(job, companyLogos) {
     font-size: 12px;
     cursor: pointer;
   `;
+  // title.onclick = () => {
+  //   const baseJobUrl = `${baseUrl}/browse-jobs/job-details`;
+  //   const params = new URLSearchParams({
+  //     companyName: encodeURIComponent(job.companyName || ''),
+  //     jobId: encodeURIComponent(job.jobId || ''),
+  //   }).toString();
+  //   const fullUrl = `${baseJobUrl}?${params}`;
+  //   window.location.href = fullUrl;
+  // };
   title.onclick = () => {
-    const baseJobUrl = `${baseUrl}/browse-jobs/job-details`;
-    const params = new URLSearchParams({
-      companyName: encodeURIComponent(job.companyName || ''),
-      jobId: encodeURIComponent(job.jobId || ''),
-    }).toString();
-    const fullUrl = `${baseJobUrl}?${params}`;
+    const jobIdPart = job.jobId || '';
+    const jobTitlePart = job.jobTitle || '';
+    const companyPart = (job.companyName || '').replace(/\s+/g, '-').toLowerCase(); // make it URL-friendly
+    const slug = `${job.jobId}-${job.jobTitle.replace(/\s+/g, '-').toLowerCase()}-${job.companyName.replace(/\s+/g, '-').toLowerCase()}`;
+    const fullUrl = `${baseUrl}/browse-jobs/job-details/${slug}`;
     window.location.href = fullUrl;
   };
+
 
   const daysAgoText = calculateDaysAgo(job.postingDate);
   const text = document.createElement('div');
