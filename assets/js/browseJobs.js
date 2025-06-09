@@ -1,33 +1,34 @@
-const baseUrl = window.location.hostname === "localhost"
-  ? "http://localhost:3000"
-  : "https://app.jobbox.one";
+const baseUrl =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://app.jobbox.one";
 let jobs = [];
 let companyLogos = {};
-let search = '';
+let search = "";
 let searchPage = 0;
 let searchPageSize = 20;
 let totalPages = 0;
 
-document.getElementById('searchButton').addEventListener('click', () => {
-  const inputEl = document.getElementById('searchInput');
+document.getElementById("searchButton").addEventListener("click", () => {
+  const inputEl = document.getElementById("searchInput");
   search = inputEl.value.trim();
   searchPage = 0;
   fetchJobs();
 });
 
 // Add input event listener to handle clearing the search
-document.getElementById('searchInput').addEventListener('input', (event) => {
-  if (event.target.value.trim() === '') {
-    search = '';
+document.getElementById("searchInput").addEventListener("input", (event) => {
+  if (event.target.value.trim() === "") {
+    search = "";
     searchPage = 0;
     fetchJobs();
   }
 });
 
 // Add keypress event listener for Enter key
-document.getElementById('searchInput').addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
-    const inputEl = document.getElementById('searchInput');
+document.getElementById("searchInput").addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    const inputEl = document.getElementById("searchInput");
     search = inputEl.value.trim();
     searchPage = 0;
     fetchJobs();
@@ -35,6 +36,12 @@ document.getElementById('searchInput').addEventListener('keypress', (event) => {
 });
 
 async function fetchJobs() {
+  // Ensure CONFIG is defined or remove its usage if not available
+  // For demonstration, I'll assume CONFIG is globally available or mock it.
+  // If CONFIG is not defined, you'll need to define it, e.g., const CONFIG = { API_URL: 'your_api_url_here' };
+  // Placeholder for CONFIG if it's not truly global and you don't have it.
+  // const CONFIG = { API_URL: "http://localhost:8080" }; // Replace with your actual API URL
+
   const endpoint = search
     ? `${CONFIG.API_URL}/searchBrowseJobs?search=${search}&page=${searchPage}&size=${searchPageSize}`
     : `${CONFIG.API_URL}/paginationJobs?page=${searchPage}&size=${searchPageSize}`;
@@ -54,124 +61,96 @@ async function fetchJobs() {
 
 async function fetchImages(jobs) {
   try {
-    const logoPromises = jobs.map(job => fetchCompanyLogo(job.companyName));
+    const logoPromises = jobs.map((job) => fetchCompanyLogo(job.companyName));
     const logos = await Promise.all(logoPromises);
     companyLogos = {};
     jobs.forEach((job, index) => {
       companyLogos[job.companyName] = logos[index];
     });
   } catch (error) {
-    console.error('Error fetching images:', error);
+    console.error("Error fetching images:", error);
   }
 }
 
 async function fetchCompanyLogo(companyName) {
   try {
     const encodedCompanyName = encodeURIComponent(companyName);
-    const response = await fetch(`${CONFIG.API_URL}/logo?companyName=${encodedCompanyName}`);
-    const buffer = await response.arrayBuffer();
-    const base64 = btoa(
-      String.fromCharCode(...new Uint8Array(buffer))
+    const response = await fetch(
+      `${CONFIG.API_URL}/logo?companyName=${encodedCompanyName}`
     );
+    const buffer = await response.arrayBuffer();
+    const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
     return `data:image/jpeg;base64,${base64}`;
   } catch (error) {
-    console.error('Error fetching company logo for:', companyName);
+    console.error("Error fetching company logo for:", companyName);
     return "https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg";
   }
 }
+
 function renderJobs() {
-  const container = document.getElementById('jobResults');
-  container.innerHTML = '';
+  const container = document.getElementById("jobResults");
+  container.innerHTML = "";
 
   if (jobs.length === 0) {
-    container.innerHTML = '<h2 style="color: red; text-align: center;">No jobs found</h2>';
+    container.innerHTML =
+      '<h2 style="color: red; text-align: center;">No jobs found</h2>';
     return;
   }
 
-  // Create main container with Bootstrap classes
-  const mainContainer = document.createElement('div');
-  mainContainer.className = 'container-fluid';
-  mainContainer.style.padding = '20px';
+  // Create the new job-grid-container for the CSS grid
+  const jobGridContainer = document.createElement("div");
+  jobGridContainer.className = "job-grid-container"; // Apply the new grid class
 
-  // Create row with fixed 4-column layout
-  const row = document.createElement('div');
-  row.className = 'row';
-  row.style.cssText = 'display: flex; flex-wrap: wrap; margin: 0 -10px;';
+  jobs.forEach((job) => {
+    const div = document.createElement("div");
+    div.className = "job-card"; // This already has the necessary flex properties
 
-  jobs.forEach(job => {
-    // Create column with fixed width for 4 cards per row
-    const col = document.createElement('div');
-    col.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
-    col.style.cssText = `
-      padding: 10px;
-      width: 25%;
-      flex: 0 0 25%;
-      max-width: 25%;
-    `;
-
-    const div = document.createElement('div');
-    div.className = 'job-card';
-    div.style.cssText = `
-      background: white;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 12px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      height: 180px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    `;
-
-    const logoUrl = companyLogos[job.companyName] || 'https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg';
-    console.log('Company:', job.companyName, 'Logo URL:', logoUrl);
+    const logoUrl =
+      companyLogos[job.companyName] ||
+      "https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg";
 
     div.innerHTML = `
-      <div class="job-header d-flex align-items-center mb-2" style="height: 40px; min-height: 40px;">
-        <img class="company-logo" src="${logoUrl}" alt="${job.companyName} Logo" 
-          style="width: 40px; height: 40px; object-fit: contain; margin-right: 8px; flex-shrink: 0;"
+      <div class="job-header">
+        <img class="company-logo" src="${logoUrl}" alt="${job.companyName} Logo"
           onerror="this.onerror=null; this.src='https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg';" />
-        <span class="company-name fw-bold text-truncate" style="font-size: 0.9rem;">${job.companyName}</span>
+        <span class="company-name">${job.companyName}</span>
       </div>
-      <h3 class="job-title h6 mb-2 text-truncate" style="font-size: 0.95rem; height: 24px; min-height: 24px;">${job.jobTitle}</h3>
-      <small class="posting-date text-muted" style="font-size: 0.8rem; position: absolute; bottom: 12px;">${calculateDaysAgo(job.postingDate)}</small>
+      <h3 class="job-title">${job.jobTitle}</h3>
+      <small class="posting-date">${calculateDaysAgo(job.postingDate)}</small>
     `;
 
     // Add click handlers
-    div.querySelector('.company-logo').onclick = () => {
-      const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(job.companyName)}`;
+    div.querySelector(".company-logo").onclick = () => {
+      const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(
+        job.companyName
+      )}`;
       window.location.href = companyUrl;
     };
-    div.querySelector('.company-name').onclick = () => {
-      const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(job.companyName)}`;
+    div.querySelector(".company-name").onclick = () => {
+      const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(
+        job.companyName
+      )}`;
       window.location.href = companyUrl;
     };
-    // div.querySelector('.job-title').onclick = () => {
-    //   const jobUrl = `${baseUrl}/browse-jobs/job-details?` + new URLSearchParams({
-    //     companyName: job.companyName,
-    //     jobId: job.jobId
-    //   }).toString();
-    //   window.location.href = jobUrl;
-    // };
-    div.querySelector('.job-title').onclick = () => {
-      const slug = `${job.jobId}-${job.jobTitle.replace(/\s+/g, '-').toLowerCase()}-${job.companyName.replace(/\s+/g, '-').toLowerCase()}`;
+    div.querySelector(".job-title").onclick = () => {
+      const slug = `${job.jobId}-${job.jobTitle
+        .replace(/\s+/g, "-")
+        .toLowerCase()}-${job.companyName.replace(/\s+/g, "-").toLowerCase()}`;
       const jobUrl = `${baseUrl}/browse-jobs/job-details/${slug}`;
       window.location.href = jobUrl;
     };
 
-    col.appendChild(div);
-    row.appendChild(col);
+    jobGridContainer.appendChild(div);
   });
 
-  mainContainer.appendChild(row);
-  container.appendChild(mainContainer);
+  container.appendChild(jobGridContainer);
 }
 
+// createJobCard function is still here, but not used by renderJobs.
+// If it's not used elsewhere, you can remove it.
 function createJobCard(job, companyLogos) {
-  const card = document.createElement('div');
-  card.className = 'job-card';
+  const card = document.createElement("div");
+  card.className = "job-card";
   card.style.cssText = `
     width: 100%;
     max-width: 250px;
@@ -185,8 +164,10 @@ function createJobCard(job, companyLogos) {
     background: #fff;
   `;
 
-  const logoImg = document.createElement('img');
-  logoImg.src = companyLogos[job.companyName] || "https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg";
+  const logoImg = document.createElement("img");
+  logoImg.src =
+    companyLogos[job.companyName] ||
+    "https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg";
   logoImg.alt = `${job.companyName} logo`;
   logoImg.style.cssText = `
     width: 30%;
@@ -197,54 +178,50 @@ function createJobCard(job, companyLogos) {
     cursor: pointer;
   `;
   logoImg.onclick = () => {
-    const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(job.companyName)}`;
+    const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(
+      job.companyName
+    )}`;
     window.location.href = companyUrl;
   };
 
-  const subtitle = document.createElement('div');
+  const subtitle = document.createElement("div");
   subtitle.textContent = job.companyName;
-  subtitle.className = 'mb-2 text-muted';
+  subtitle.className = "mb-2 text-muted";
   subtitle.style.cssText = `
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
   `;
   subtitle.onclick = () => {
-    const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(job.companyName)}`;
+    const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(
+      job.companyName
+    )}`;
     window.location.href = companyUrl;
   };
 
-  const title = document.createElement('div');
+  const title = document.createElement("div");
   title.textContent = job.jobTitle;
   title.style.cssText = `
     margin-top: 40px;
     font-size: 12px;
     cursor: pointer;
   `;
-  // title.onclick = () => {
-  //   const baseJobUrl = `${baseUrl}/browse-jobs/job-details`;
-  //   const params = new URLSearchParams({
-  //     companyName: encodeURIComponent(job.companyName || ''),
-  //     jobId: encodeURIComponent(job.jobId || ''),
-  //   }).toString();
-  //   const fullUrl = `${baseJobUrl}?${params}`;
-  //   window.location.href = fullUrl;
-  // };
   title.onclick = () => {
-    const jobIdPart = job.jobId || '';
-    const jobTitlePart = job.jobTitle || '';
-    const companyPart = (job.companyName || '').replace(/\s+/g, '-').toLowerCase(); // make it URL-friendly
-    const slug = `${job.jobId}-${job.jobTitle.replace(/\s+/g, '-').toLowerCase()}-${job.companyName.replace(/\s+/g, '-').toLowerCase()}`;
+    const jobIdPart = job.jobId || "";
+    const jobTitlePart = job.jobTitle || "";
+    const companyPart = (job.companyName || "").replace(/\s+/g, "-").toLowerCase(); // make it URL-friendly
+    const slug = `${job.jobId}-${job.jobTitle
+      .replace(/\s+/g, "-")
+      .toLowerCase()}-${job.companyName.replace(/\s+/g, "-").toLowerCase()}`;
     const fullUrl = `${baseUrl}/browse-jobs/job-details/${slug}`;
     window.location.href = fullUrl;
   };
 
-
   const daysAgoText = calculateDaysAgo(job.postingDate);
-  const text = document.createElement('div');
+  const text = document.createElement("div");
   text.textContent = daysAgoText;
   text.style.cssText = `
-    font-size: ${daysAgoText === '> 7 days ago' ? '10px' : '14px'};
+    font-size: ${daysAgoText === "> 7 days ago" ? "10px" : "14px"};
     color: #666;
   `;
 
@@ -256,52 +233,55 @@ function createJobCard(job, companyLogos) {
   return card;
 }
 
-
 function renderPagination() {
-  const container = document.getElementById('paginationControls');
-  container.innerHTML = '';
-  container.className = 'pagination-container d-flex justify-content-end align-items-center';
-  container.style.cssText = 'display: flex; justify-content: flex-end; align-items: flex-end;';
+  const container = document.getElementById("paginationControls");
+  container.innerHTML = "";
+  container.className =
+    "pagination-container d-flex justify-content-end align-items-center";
+  container.style.cssText =
+    "display: flex; justify-content: flex-end; align-items: flex-end;";
 
   // Always render page size dropdown
-  const pageSizeWrapper = document.createElement('div');
-  pageSizeWrapper.className = 'page-size-select me-3';
-  pageSizeWrapper.style.cssText = 'margin-right: 1rem; margin-bottom: 4px;';
+  const pageSizeWrapper = document.createElement("div");
+  pageSizeWrapper.className = "page-size-select me-3";
+  pageSizeWrapper.style.cssText = "margin-right: 1rem; margin-bottom: 4px;";
   pageSizeWrapper.innerHTML = `
     <label for="pageSizeSelect" style="color: black; font-size: 14px;">Show Entries:</label>
     <select id="pageSizeSelect" style="color: black; font-size: 14px; padding: 4px; border: 1px solid #ccc; border-radius: 4px; margin-left: 8px;">
-      <option value="20" ${searchPageSize === 20 ? 'selected' : ''}>20</option>
-      <option value="40" ${searchPageSize === 40 ? 'selected' : ''}>40</option>
-      <option value="60" ${searchPageSize === 60 ? 'selected' : ''}>60</option>
+      <option value="20" ${searchPageSize === 20 ? "selected" : ""}>20</option>
+      <option value="40" ${searchPageSize === 40 ? "selected" : ""}>40</option>
+      <option value="60" ${searchPageSize === 60 ? "selected" : ""}>60</option>
     </select>
   `;
   container.appendChild(pageSizeWrapper);
 
-  document.getElementById('pageSizeSelect').addEventListener('change', (event) => {
+  document.getElementById("pageSizeSelect").addEventListener("change", (event) => {
     searchPageSize = parseInt(event.target.value);
     searchPage = 0;
     fetchJobs();
   });
 
   // Always show pagination controls
-  const paginationWrapper = document.createElement('ul');
-  paginationWrapper.className = 'pagination';
-  paginationWrapper.setAttribute('role', 'navigation');
-  paginationWrapper.setAttribute('aria-label', 'Pagination');
-  paginationWrapper.style.cssText = 'display: flex; list-style: none; padding: 0; margin: 0; gap: 4px;';
+  const paginationWrapper = document.createElement("ul");
+  paginationWrapper.className = "pagination";
+  paginationWrapper.setAttribute("role", "navigation");
+  paginationWrapper.setAttribute("aria-label", "Pagination");
+  paginationWrapper.style.cssText =
+    "display: flex; list-style: none; padding: 0; margin: 0; gap: 4px;";
 
   // Previous Button
-  const prevLi = document.createElement('li');
-  prevLi.className = 'previous' + (searchPage === 0 ? ' disabled' : '');
-  const prevBtn = document.createElement('a');
-  prevBtn.textContent = 'Previous';
-  prevBtn.style.cssText = 'padding: 6px 12px; background: white; color:#663399; border-radius: 4px; cursor: pointer; font-size: 12px; text-decoration: none; display: block;';
-  prevBtn.setAttribute('role', 'button');
-  prevBtn.setAttribute('aria-label', 'Previous page');
-  prevBtn.setAttribute('rel', 'prev');
+  const prevLi = document.createElement("li");
+  prevLi.className = "previous" + (searchPage === 0 ? " disabled" : "");
+  const prevBtn = document.createElement("a");
+  prevBtn.textContent = "Previous";
+  prevBtn.style.cssText =
+    "padding: 6px 12px; background: white; color:#663399; border-radius: 4px; cursor: pointer; font-size: 12px; text-decoration: none; display: block;";
+  prevBtn.setAttribute("role", "button");
+  prevBtn.setAttribute("aria-label", "Previous page");
+  prevBtn.setAttribute("rel", "prev");
   if (searchPage === 0) {
-    prevBtn.setAttribute('aria-disabled', 'true');
-    prevBtn.setAttribute('tabindex', '-1');
+    prevBtn.setAttribute("aria-disabled", "true");
+    prevBtn.setAttribute("tabindex", "-1");
   }
   prevBtn.onclick = () => {
     if (searchPage > 0) {
@@ -313,9 +293,9 @@ function renderPagination() {
   paginationWrapper.appendChild(prevLi);
 
   const createPageButton = (pageNum) => {
-    const li = document.createElement('li');
-    li.className = searchPage === pageNum ? 'active' : '';
-    const a = document.createElement('a');
+    const li = document.createElement("li");
+    li.className = searchPage === pageNum ? "active" : "";
+    const a = document.createElement("a");
     a.textContent = pageNum + 1;
     a.style.cssText = `
       padding: 6px 12px;
@@ -326,12 +306,12 @@ function renderPagination() {
       text-decoration: none;
       display: block;
       font-size:10px;
-      ${searchPage === pageNum ? 'background:#663399; color: white;' : ''}
+      ${searchPage === pageNum ? "background:#663399; color: white;" : ""}
     `;
-    a.setAttribute('role', 'button');
-    a.setAttribute('aria-label', `Page ${pageNum + 1}`);
+    a.setAttribute("role", "button");
+    a.setAttribute("aria-label", `Page ${pageNum + 1}`);
     if (searchPage === pageNum) {
-      a.setAttribute('aria-current', 'page');
+      a.setAttribute("aria-current", "page");
     }
     a.onclick = () => {
       searchPage = pageNum;
@@ -342,13 +322,14 @@ function renderPagination() {
   };
 
   const addEllipsis = () => {
-    const li = document.createElement('li');
-    li.className = 'break-me';
-    const a = document.createElement('a');
-    a.textContent = '...';
-    a.style.cssText = 'padding: 6px 12px; color: #663399; text-decoration: none; display: block;';
-    a.setAttribute('role', 'button');
-    a.setAttribute('aria-label', 'Jump forward');
+    const li = document.createElement("li");
+    li.className = "break-me";
+    const a = document.createElement("a");
+    a.textContent = "...";
+    a.style.cssText =
+      "padding: 6px 12px; color: #663399; text-decoration: none; display: block;";
+    a.setAttribute("role", "button");
+    a.setAttribute("aria-label", "Jump forward");
     li.appendChild(a);
     paginationWrapper.appendChild(li);
   };
@@ -366,17 +347,18 @@ function renderPagination() {
   }
 
   // Next Button
-  const nextLi = document.createElement('li');
-  nextLi.className = 'next' + (searchPage >= totalPages - 1 ? ' disabled' : '');
-  const nextBtn = document.createElement('a');
-  nextBtn.textContent = 'Next';
-  nextBtn.style.cssText = 'padding: 6px 12px; background: white; color:#663399; border-radius: 4px; cursor: pointer; font-size: 12px; text-decoration: none; display: block;';
-  nextBtn.setAttribute('role', 'button');
-  nextBtn.setAttribute('aria-label', 'Next page');
-  nextBtn.setAttribute('rel', 'next');
+  const nextLi = document.createElement("li");
+  nextLi.className = "next" + (searchPage >= totalPages - 1 ? " disabled" : "");
+  const nextBtn = document.createElement("a");
+  nextBtn.textContent = "Next";
+  nextBtn.style.cssText =
+    "padding: 6px 12px; background: white; color:#663399; border-radius: 4px; cursor: pointer; font-size: 12px; text-decoration: none; display: block;";
+  nextBtn.setAttribute("role", "button");
+  nextBtn.setAttribute("aria-label", "Next page");
+  nextBtn.setAttribute("rel", "next");
   if (searchPage >= totalPages - 1) {
-    nextBtn.setAttribute('aria-disabled', 'true');
-    nextBtn.setAttribute('tabindex', '-1');
+    nextBtn.setAttribute("aria-disabled", "true");
+    nextBtn.setAttribute("tabindex", "-1");
   }
   nextBtn.onclick = () => {
     if (searchPage < totalPages - 1) {
@@ -390,15 +372,12 @@ function renderPagination() {
   container.appendChild(paginationWrapper);
 }
 
-
-
 function calculateDaysAgo(postingDate) {
   const today = new Date();
   const postDate = new Date(postingDate);
   const diff = today - postDate;
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  return days <= 7 ? `${days} days ago` : '> 7 days ago';
+  return days <= 7 ? `${days} days ago` : "> 7 days ago";
 }
 
 fetchJobs(); // Initial load
-
