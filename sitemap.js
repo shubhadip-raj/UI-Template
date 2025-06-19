@@ -26,7 +26,7 @@ function writeSitemapToFile() {
   const sitemapPath = path.join(__dirname, 'sitemap.xml');
 
   fs.writeFileSync(sitemapPath, sitemapContent, 'utf8');
-  console.log('✅ sitemap.xml generated successfully at:', sitemapPath);
+  //console.log('✅ sitemap.xml generated successfully at:', sitemapPath);
 }
 
 // If running this file directly

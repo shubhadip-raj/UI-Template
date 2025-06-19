@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
             .then(response => {
                 // Log the full response for debugging purposes
-                console.log('Response:', response.json());
+               // console.log('Response:', response.json());
 
                 // Check if the response was successful
                 if (response.ok) {

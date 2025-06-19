@@ -5,7 +5,7 @@ const BASE_URL = window.location.origin.includes("localhost")
 
 // Function to handle "Claim HR" button click
 function handleClaimHr() {
-    console.log("Claim HR button clicked");
+   // console.log("Claim HR button clicked");
     const userCookie = getCookie('user');
     const tokenCookie = getCookie('token');
 
@@ -23,7 +23,7 @@ function handleClaimHr() {
 
 // Function to handle "Join Now" button click for Job Seekers
 function handleJoinNowClick() {
-    console.log("Join Now button clicked");
+   // console.log("Join Now button clicked");
     const userCookie = getCookie('user');
     const tokenCookie = getCookie('token');
 
@@ -41,7 +41,7 @@ function handleJoinNowClick() {
 
 // Function to handle "Claim HR" button click in CTA section
 function handleHrSeekers() {
-    console.log("Claim HR button clicked in CTA section");
+   // console.log("Claim HR button clicked in CTA section");
     const userCookie = getCookie('user');
     const tokenCookie = getCookie('token');
 
@@ -59,7 +59,7 @@ function handleHrSeekers() {
 
 // Function to handle "Create your profile" button click
 function handleCandidateSeekers() {
-    console.log("Create your profile button clicked");
+   // console.log("Create your profile button clicked");
     const userCookie = getCookie('user');
     const tokenCookie = getCookie('token');
 
@@ -77,7 +77,7 @@ function handleCandidateSeekers() {
 
 // Function to handle "Create your profile" button click in job seekers page
 function handleJobSeekers() {
-    console.log("Create your profile button clicked");
+   // console.log("Create your profile button clicked");
     const userCookie = getCookie('user');
     const tokenCookie = getCookie('token');
 
@@ -95,7 +95,7 @@ function handleJobSeekers() {
 
 // Function to handle "Create your profile" button click in job seekers page
 function handleComapniesHRSeekers() {
-    console.log("Create your profile button clicked");
+   // console.log("Create your profile button clicked");
     const userCookie = getCookie('user');
     const tokenCookie = getCookie('token');
 
