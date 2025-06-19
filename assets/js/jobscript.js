@@ -130,7 +130,7 @@ async function fetchJobs(page = 0, size = 10) {
     try {
         const response = await fetch(`${CONFIG.API_URL}/latestJobs?page=${page}&size=${size}`);
         const data = await response.json();
-        console.log("Fetched Jobs:", data);
+       // console.log("Fetched Jobs:", data);
 
         // Delay display for a better user experience
         setTimeout(() => {

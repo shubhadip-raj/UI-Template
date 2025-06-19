@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Listen for messages from the React app
 window.addEventListener('message', function(event) {
     if (event.origin !== 'http://localhost:3000') return; // Check the origin
-    console.log("Message received from React app:", event.data); // Log the received message
+    //console.log("Message received from React app:", event.data); // Log the received message
 
     if (event.data.loggedIn) {
         // User logged in
