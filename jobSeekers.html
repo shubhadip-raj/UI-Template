@@ -126,11 +126,12 @@
                 </li>
 
                 <!-- Employee -->
-                <li id="employeeMenu" class="submenu-item group relative">
+                <li id="employeeMenu" class="submenu-item group relative lg:hidden">
                   <a href="javascript:void(0)"
-                    class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
-                    <!-- Employee -->
-                    HR
+                    class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+               
+                    Login
+
                     <svg class="ml-2 fill-current" width="16" height="20" viewBox="0 0 16 20" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -139,23 +140,27 @@
                   </a>
                   <div
                     class="submenu relative left-0 top-full hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full">
-                    <a href="#" id="registerLink"
-                      class="block rounded px-4 py-[10px] text-sm !text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                      Register
+                    <a href="https://app.jobbox.one/signin"  target="_blank"
+                      class="block rounded px-4 py-[10px] text-sm !text-black hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                     Candidate Login
                     </a>
-                    <a href="#" id="loginLink"
-                      class="block rounded px-4 py-[10px] text-sm !text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                      Login
-                    </a>
+                    <!-- id="registerLink" -->
+                    <a href="https://app.jobbox.one/hr-sign-in"  target="_blank"    
+                      class="block rounded px-4 py-[10px] text-sm !text-black hover:text-primary dark:text-dark-6 dark:hover:text-primary">   
+                     HR Login
+                    </a> 
+                    <!-- id="loginLink" -->
                   </div>
 
                 </li>
 
-                <!-- This part will show if the user is not logged in (visible on mobile) -->
+                <!-- This part will show if the user is not logged in (visible on mobile)
+                class="relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">   -->
+
                 <li id="candidateMenu" class="submenu-item group relative lg:hidden">
                   <a href="javascript:void(0)"
-                    class="relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">
-                    Candidate
+                    class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+                    Register
                     <svg class="ml-2 fill-current" width="16" height="20" viewBox="0 0 16 20" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -166,9 +171,9 @@
                   <div
                     class="submenu relative left-0 top-full hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full">
                     <a href="https://app.jobbox.one/candidate-signup" target="_blank"
-                      class="block rounded px-4 py-[10px] text-sm text-black hover:text-primary dark:text-white">Register</a>
-                    <a href="https://app.jobbox.one/signin" target="_blank"
-                      class="block rounded px-4 py-[10px] text-sm text-black hover:text-primary dark:text-white">Login</a>
+                      class="block rounded px-4 py-[10px] text-sm text-black hover:text-primary"> Candidate Register</a>
+                    <a href="https://app.jobbox.one/hr-signup" target="_blank"
+                      class="block rounded px-4 py-[10px] text-sm text-black hover:text-primary"> HR Register</a>
 
                   </div>
                 </li>
@@ -240,12 +245,53 @@
               </span>
             </label>
             <div class="hidden sm:flex">
-              <div id="authButtons">
-                <a href="https://app.jobbox.one/signin" target="_blank"
-                  class="loginBtn px-[22px] py-2 text-base font-medium text-black hover:opacity-70 dark:text-white">Login</a>
-                <a href="https://app.jobbox.one/candidate-signup" target="_blank"
-                  class="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-black duration-300 ease-in-out hover:bg-opacity-100 hover:text-black dark:text-white">Register</a>
-              </div>
+                       <div class="flex gap-4 items-center" id="authButtons">
+  <!-- Login Dropdown -->
+  <div class="relative inline-block text-left">
+    <button
+      id="customLoginBtn"
+class="loginBtn px-[22px] py-2 text-base font-medium text-black hover:opacity-70 dark:text-white flex items-center justify-between gap-1">
+      Login
+      <svg class="ml-1 fill-current text-black" width="14" height="18" viewBox="0 0 16 20" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M7.99999 14.9C7.84999 14.9 7.72499 14.85 7.59999 14.75L1.84999 9.10005C1.62499 8.87505 1.62499 8.52505 1.84999 8.30005C2.07499 8.07505 2.42499 8.07505 2.64999 8.30005L7.99999 13.525L13.35 8.25005C13.575 8.02505 13.925 8.02505 14.15 8.25005C14.375 8.47505 14.375 8.82505 14.15 9.05005L8.39999 14.7C8.27499 14.825 8.14999 14.9 7.99999 14.9Z" />
+      </svg>
+    </button>
+
+    <div
+      id="customLoginDropdown"
+      class="custom-dropdown absolute right-0 z-10 mt-1 w-[250px] rounded-sm bg-white p-4 shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-300 opacity-0 invisible">
+      <a id="candidateLoginLink"
+        class="block rounded px-4 py-[10px] text-sm text-black hover:text-primary">Candidate Login</a>
+      <a id="hrLoginLink"
+        class="block rounded px-4 py-[10px] text-sm text-black hover:text-primary">HR Login</a>
+    </div>
+  </div>
+
+  <!-- Register Dropdown -->
+  <div class="relative inline-block text-left">
+    <button
+      id="customRegisterBtn"
+      class="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-black duration-300 ease-in-out hover:bg-opacity-100 hover:text-black dark:text-white flex items-center justify-between gap-1">
+      Register
+      <svg class="ml-1 fill-current text-black" width="14" height="18" viewBox="0 0 16 20" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M7.99999 14.9C7.84999 14.9 7.72499 14.85 7.59999 14.75L1.84999 9.10005C1.62499 8.87505 1.62499 8.52505 1.84999 8.30005C2.07499 8.07505 2.42499 8.07505 2.64999 8.30005L7.99999 13.525L13.35 8.25005C13.575 8.02505 13.925 8.02505 14.15 8.25005C14.375 8.47505 14.375 8.82505 14.15 9.05005L8.39999 14.7C8.27499 14.825 8.14999 14.9 7.99999 14.9Z" />
+      </svg>
+    </button>
+
+    <div
+      id="customRegisterDropdown"
+      class="custom-dropdown absolute right-0 z-10 mt-1 w-[250px] rounded-sm bg-white p-4 shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-300 opacity-0 invisible">
+      <a id="candidateRegisterLink"
+        class="block rounded px-4 py-[10px] text-sm text-black hover:text-primary">Candidate Register</a>
+      <a id="hrRegisterLink"
+        class="block rounded px-4 py-[10px] text-sm text-black hover:text-primary">HR Register</a>
+    </div>
+  </div>
+</div>
               <!-- Welcome and Dashboard button (hidden initially) -->
               <div id="userGreeting" class="submenu-item group relative lg:hidden" style="display: none;">
                 <a href="javascript:void(0)"
@@ -806,6 +852,62 @@
       }
     });
   </script>
+  <script>
+  const loginBtn = document.getElementById("customLoginBtn");
+  const registerBtn = document.getElementById("customRegisterBtn");
+  const loginDropdown = document.getElementById("customLoginDropdown");
+  const registerDropdown = document.getElementById("customRegisterDropdown");
+
+  function toggleDropdown(dropdown) {
+    const isVisible = !dropdown.classList.contains("invisible");
+    closeAllDropdowns();
+    if (!isVisible) {
+      dropdown.classList.remove("invisible", "opacity-0");
+      dropdown.classList.add("visible", "opacity-100");
+    }
+  }
+
+  function closeAllDropdowns() {
+    [loginDropdown, registerDropdown].forEach(d => {
+      d.classList.add("invisible", "opacity-0");
+      d.classList.remove("visible", "opacity-100");
+    });
+  }
+
+  loginBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleDropdown(loginDropdown);
+  });
+
+  registerBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleDropdown(registerDropdown);
+  });
+
+  document.addEventListener("click", () => {
+    closeAllDropdowns();
+  });
+
+  [loginDropdown, registerDropdown].forEach(dropdown => {
+    dropdown.addEventListener("click", (e) => e.stopPropagation());
+  });
+
+  // Dynamic URL setup
+  const isLocalhost = window.location.hostname.includes("localhost") || window.location.hostname === "127.0.0.1";
+
+  document.getElementById("candidateLoginLink").setAttribute("href",
+    isLocalhost ? "http://localhost:3000/signin" : "https://app.jobbox.one/signin"
+  );
+  document.getElementById("hrLoginLink").setAttribute("href",
+    isLocalhost ? "http://localhost:3000/hr-sign-in" : "https://app.jobbox.one/hr-signin"
+  );
+  document.getElementById("candidateRegisterLink").setAttribute("href",
+    isLocalhost ? "http://localhost:3000/candidate-signup" : "https://app.jobbox.one/candidate-signup"
+  );
+  document.getElementById("hrRegisterLink").setAttribute("href",
+    isLocalhost ? "http://localhost:3000/hr-signup" : "https://app.jobbox.one/hr-signup"
+  );
+</script>
 </body>
 
 </html>
