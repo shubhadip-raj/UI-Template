@@ -36,12 +36,6 @@ document.getElementById("searchInput").addEventListener("keypress", (event) => {
 });
 
 async function fetchJobs() {
-  // Ensure CONFIG is defined or remove its usage if not available
-  // For demonstration, I'll assume CONFIG is globally available or mock it.
-  // If CONFIG is not defined, you'll need to define it, e.g., const CONFIG = { API_URL: 'your_api_url_here' };
-  // Placeholder for CONFIG if it's not truly global and you don't have it.
-  // const CONFIG = { API_URL: "http://localhost:8080" }; // Replace with your actual API URL
-
   const endpoint = search
     ? `${CONFIG.API_URL}/searchBrowseJobs?search=${search}&page=${searchPage}&size=${searchPageSize}`
     : `${CONFIG.API_URL}/paginationJobs?page=${searchPage}&size=${searchPageSize}`;
@@ -117,6 +111,7 @@ function renderJobs() {
       </div>
       <h3 class="job-title">${job.jobTitle}</h3>
       <small class="posting-date">${calculateDaysAgo(job.postingDate)}</small>
+        <button class="share-btn">🔗 Share</button>
     `;
 
     // Add click handlers
@@ -140,97 +135,25 @@ function renderJobs() {
       window.location.href = jobUrl;
     };
 
+    // Add Share Button
+    const shareBtn = div.querySelector('.share-btn');
+    shareBtn.style.cssText = `
+  font-size: 13px;
+  font-weight: 600;
+  color: #4caf50;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+`;
+
+    shareBtn.onclick = () => handleShare(job);
+
+    div.appendChild(shareBtn);
+
     jobGridContainer.appendChild(div);
   });
 
   container.appendChild(jobGridContainer);
-}
-
-// createJobCard function is still here, but not used by renderJobs.
-// If it's not used elsewhere, you can remove it.
-function createJobCard(job, companyLogos) {
-  const card = document.createElement("div");
-  card.className = "job-card";
-  card.style.cssText = `
-    width: 100%;
-    max-width: 250px;
-    margin: 10px;
-    padding-top: 0px;
-    box-sizing: border-box;
-    position: relative;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 10px;
-    background: #fff;
-  `;
-
-  const logoImg = document.createElement("img");
-  logoImg.src =
-    companyLogos[job.companyName] ||
-    "https://static.vecteezy.com/system/resources/previews/013/899/376/original/cityscape-design-corporation-of-buildings-logo-for-real-estate-business-company-vector.jpg";
-  logoImg.alt = `${job.companyName} logo`;
-  logoImg.style.cssText = `
-    width: 30%;
-    height: 30%;
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    cursor: pointer;
-  `;
-  logoImg.onclick = () => {
-    const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(
-      job.companyName
-    )}`;
-    window.location.href = companyUrl;
-  };
-
-  const subtitle = document.createElement("div");
-  subtitle.textContent = job.companyName;
-  subtitle.className = "mb-2 text-muted";
-  subtitle.style.cssText = `
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-  `;
-  subtitle.onclick = () => {
-    const companyUrl = `${baseUrl}/companyPage/companyName/${encodeURIComponent(
-      job.companyName
-    )}`;
-    window.location.href = companyUrl;
-  };
-
-  const title = document.createElement("div");
-  title.textContent = job.jobTitle;
-  title.style.cssText = `
-    margin-top: 40px;
-    font-size: 12px;
-    cursor: pointer;
-  `;
-  title.onclick = () => {
-    const jobIdPart = job.jobId || "";
-    const jobTitlePart = job.jobTitle || "";
-    const companyPart = (job.companyName || "").replace(/\s+/g, "-").toLowerCase(); // make it URL-friendly
-    const slug = `${job.jobId}-${job.jobTitle
-      .replace(/\s+/g, "-")
-      .toLowerCase()}-${job.companyName.replace(/\s+/g, "-").toLowerCase()}`;
-    const fullUrl = `${baseUrl}/browse-jobs/job-details/${slug}`;
-    window.location.href = fullUrl;
-  };
-
-  const daysAgoText = calculateDaysAgo(job.postingDate);
-  const text = document.createElement("div");
-  text.textContent = daysAgoText;
-  text.style.cssText = `
-    font-size: ${daysAgoText === "> 7 days ago" ? "10px" : "14px"};
-    color: #666;
-  `;
-
-  card.appendChild(subtitle);
-  card.appendChild(logoImg);
-  card.appendChild(title);
-  card.appendChild(text);
-
-  return card;
 }
 
 function renderPagination() {
@@ -378,6 +301,31 @@ function calculateDaysAgo(postingDate) {
   const diff = today - postDate;
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   return days <= 7 ? `${days} days ago` : "> 7 days ago";
+}
+
+function handleShare(job) {
+  const slug = `${job.jobId}-${job.jobTitle
+    .replace(/\s+/g, "-")
+    .toLowerCase()}-${job.companyName.replace(/\s+/g, "-").toLowerCase()}`;
+  const shareUrl = `${baseUrl}/browse-jobs/job-details/${slug}`;
+
+  if (navigator.share) {
+    navigator.share({
+      title: "Job Opportunity",
+      text: "Check out this job!",
+      url: shareUrl,
+    })
+      .then(() => console.log("Job shared successfully"))
+      .catch((error) => console.error("Error sharing", error));
+  } else {
+    navigator.clipboard.writeText(shareUrl)
+      .then(() => {
+        alert("Job link copied to clipboard!");
+      })
+      .catch(() => {
+        alert("Could not copy the link. Please try again.");
+      });
+  }
 }
 
 fetchJobs(); // Initial load

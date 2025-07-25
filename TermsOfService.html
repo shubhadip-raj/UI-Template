@@ -63,8 +63,8 @@
 
                 <!-- Home -->
                 <li class="relative group">
-                  <a href="#home"
-                    class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
+                  <a id="homeLink" href="#"
+                    class=" mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     Home
                   </a>
                 </li>
@@ -120,9 +120,10 @@
                   </a>
                 </li> -->
 
+             
                 <!-- Contact -->
                 <li class="group relative">
-                  <a href="#contact"
+                  <a  href="/#contact"
                     class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-black lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-black lg:group-hover:text-purple lg:group-hover:opacity-70">
                     Contact
                   </a>
@@ -589,6 +590,19 @@ class="loginBtn px-[22px] py-2 text-base font-medium text-black hover:opacity-70
             </ul>
         </div>
     </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const BASE_URL = window.location.origin.includes("localhost")
+        ? "http://localhost:3001"
+        : "https://jobbox.one";
+
+      const homeLink = document.getElementById("homeLink");
+      if (homeLink) {
+        homeLink.href = BASE_URL;
+      }
+    });
+  </script>
   <script>
   const loginBtn = document.getElementById("customLoginBtn");
   const registerBtn = document.getElementById("customRegisterBtn");
