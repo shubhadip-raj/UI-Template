@@ -42,6 +42,7 @@
     <script src="/assets/js/companiesnav.js"></script>
     <script src="/assets/js/userLoginRegisterlinks.js"></script>
     <script src="/assets/js/browseJobs.js"></script>
+    <script src="/assets/js/indexSlide.js"></script>
     <script>
     new WOW().init();
   </script>
@@ -367,7 +368,6 @@
         </div>
       </div>
     </div>
-    <!-- </div> -->
     <!-- ====== Navbar Section End -->
 
     <!-- ====== Hero Section Start -->
@@ -412,84 +412,40 @@
                     </div>
                   </div>
 
-                  <!-- === Slide 2: JOB LISTINGS === -->
+                  <!-- === Slide 2: JOB LISTINGS (Dynamic) === -->
                   <div class="slide hidden">
-                    <div
-                      class="bg-white shadow-xl rounded-xl px-6 py-10 mt-16 max-w-[845px] mx-auto">
-                      <h2
-                        class="text-3xl font-extrabold mb-8 text-center text-indigo-800">
-                        🌟 Top Jobs of the Week
-                      </h2>
-                      <div class="space-y-6">
-                        <!-- Job Card -->
-                        <div
-                          class="border border-indigo-100 p-5 rounded-xl bg-indigo-50 hover:bg-indigo-100 hover:shadow-lg transition duration-300">
-                          <div class="flex items-center justify-between">
-                            <h3
-                              class="text-xl font-bold text-indigo-900">Frontend
-                              Developer</h3>
-                            <span class="text-green-600 font-semibold">$70k -
-                              $90k</span>
-                          </div>
-                          <p class="text-gray-600 mt-1">Tech Corp • <span
-                              class="italic">Remote</span></p>
-                        </div>
-
-                        <!-- Job Card -->
-                        <div
-                          class="border border-indigo-100 p-5 rounded-xl bg-indigo-50 hover:bg-indigo-100 hover:shadow-lg transition duration-300">
-                          <div class="flex items-center justify-between">
-                            <h3
-                              class="text-xl font-bold text-indigo-900">Backend
-                              Engineer</h3>
-                            <span class="text-green-600 font-semibold">$95k -
-                              $120k</span>
-                          </div>
-                          <p class="text-gray-600 mt-1">InnovateX • <span
-                              class="italic">New York, NY</span></p>
+                    <div class="mt-16">
+                      <div
+                        class="mx-auto max-w-full rounded-xl shadow-lg bg-white px-6 py-10 max-w-[845px]">
+                        <h2
+                          class="text-3xl font-extrabold mb-8 text-center text-indigo-800">
+                          🌟 Top Jobs of the Week
+                        </h2>
+                        <div class="space-y-6" id="jobListContainer">
+                          <!-- Jobs will be injected here -->
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- === Slide 3: PLATFORM STATS === -->
+                  <!-- === Slide 3: PLATFORM STATS (Dynamic) === -->
                   <div class="slide hidden">
-                    <div
-                      class="bg-gradient-to-br from-indigo-100 to-purple-100 shadow-xl rounded-xl px-6 py-10 mt-16 max-w-[845px] mx-auto text-center">
-                      <h2 class="text-3xl font-extrabold mb-8 text-indigo-900">
-                        📊 Platform Insights
-                      </h2>
-                      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-
-                        <div
-                          class="bg-white p-5 rounded-lg shadow-md hover:shadow-xl transition">
-                          <h3 class="text-xl font-bold text-blue-700">🚀 45 New
-                            Users</h3>
-                          <p class="text-sm text-gray-600 mt-1">Joined Today</p>
+                    <div class="mt-16">
+                      <div
+                        class="mx-auto max-w-full rounded-xl shadow-lg bg-white px-6 py-10 max-w-[845px] text-center">
+                        <h2
+                          class="text-3xl font-extrabold mb-8 text-indigo-900">
+                          📊 Platform Insights
+                        </h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6"
+                          id="statsContainer">
+                          <!-- Stats will be injected here -->
                         </div>
-
-                        <div
-                          class="bg-white p-5 rounded-lg shadow-md hover:shadow-xl transition">
-                          <h3 class="text-xl font-bold text-green-700">📄 100
-                            Applications</h3>
-                          <p class="text-sm text-gray-600 mt-1">Submitted This
-                            Week</p>
-                        </div>
-
-                        <div
-                          class="bg-white p-5 rounded-lg shadow-md hover:shadow-xl transition">
-                          <h3 class="text-xl font-bold text-purple-700">🏢 10
-                            Companies</h3>
-                          <p class="text-sm text-gray-600 mt-1">Joined
-                            Recently</p>
-                        </div>
-
                       </div>
                     </div>
                   </div>
 
                 </div>
-                
               </div>
 
               <div class="absolute -left-9 bottom-0 z-[-1]">
@@ -1148,8 +1104,6 @@
     </section>
     <!-- ====== About Section End -->
     <!-- ====== Jobs Section Start -->
-
-    <!-- Recent Jobs Section -->
     <section id="jobs"
       class="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
       <div class="container mx-auto">
@@ -1193,9 +1147,7 @@
         </div>
       </div>
     </section>
-
     <script src="/assets/js/jobscript.js"></script>
-
     <!-- ====== Jobs Section End -->
 
     <!-- ====== CTA Section Start -->
@@ -1289,7 +1241,7 @@
               <h3>
                 <!-- target="_blank" -->
                 <a id="companiesLink" href="#" rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white">
+                  class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 hover:bg-blue-dark text-center text-base font-medium text-white">
                   View more companies
                 </a>
 
@@ -1313,6 +1265,80 @@
     </section>
     <script src="assets/js/companyScript.js"></script>
     <!-- ====== Companies Section End -->
+    <!-- ====== Collge ambassabor Section Start -->
+    <section
+      class="relative z-20 overflow-hidden bg-white dark:bg-dark py-20 lg:py-[120px]">
+      <div class="container">
+        <div class="wow fadeInUp" data-wow-delay=".2s">
+          <div class="-mx-4 flex flex-wrap items-center">
+
+            <!-- Left Content -->
+            <div class="w-full px-4 lg:w-1/2 lg:pr-16">
+              <div class="mb-12 max-w-[540px] lg:mb-0">
+                <h1
+                  class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800 dark:text-white leading-tight mb-6">
+                  Join Our <span
+                    class="text-primary dark:text-primary underline decoration-4 decoration-blue-500">
+                    College Ambassador
+                  </span> Program
+                </h1>
+                <p
+                  class="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
+                  Be a leader on your campus! Influence your peers, represent a
+                  leading brand, and gain valuable experience that will boost
+                  your
+                  career.
+                </p>
+                <button id="learnMoreBtn"
+                  class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white hover:bg-blue-dark transition duration-300">
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Image/Illustration -->
+            <!-- <div
+              class="w-full px-4 lg:w-1/2 flex justify-center lg:justify-end">
+              <div class="-mx-2 flex flex-wrap sm:-mx-4 lg:-mx-2 xl:-mx-4">
+                <svg class="w-60 h-auto" viewBox="0 0 200 200" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="100" cy="100" r="90" fill="#e0e7ff" />
+                  <path d="M100 20 L180 100 L100 180 L20 100 L100 20 Z"
+                    fill="#93c5fd" />
+                  <path d="M100 40 L160 100 L100 160 L40 100 L100 40 Z"
+                    fill="#60a5fa" />
+                  <circle cx="100" cy="100" r="30" fill="#3b82f6" />
+                </svg>
+              </div>
+            </div> -->
+            <!-- Right Image/Illustration -->
+            <div
+              class="w-full px-4 lg:w-1/2 flex justify-center lg:justify-end">
+              <div class="-mx-2 flex flex-wrap sm:-mx-4 lg:-mx-2 xl:-mx-4">
+                <img
+                  src="/assets/images/hero/college-ambassadors-group.png"
+                  alt="College Ambassador program — group of smiling students"
+                  class="w-60 h-auto rounded-xl shadow-sm"
+                  width="480"
+                  height="640"
+                  loading="eager"
+                  decoding="async" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+        const learnMoreBtn = document.getElementById('learnMoreBtn');
+
+        learnMoreBtn.addEventListener('click', () => {
+            window.open('http://51.79.18.21:5051/', '_blank');
+        });
+    </script>
+    <!-- ====== Collge ambassabor Section End -->
     <!-- ====== Pricing Section Start -->
     <section id="pricing"
       class="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
@@ -2915,7 +2941,7 @@
     <!-- ====== Contact End ====== -->
 
     <!-- ====== Brands Section Start -->
-    <section class="pb-20 dark:bg-dark">
+    <!-- <section class="pb-20 dark:bg-dark">
       <div class="container px-4">
         <div
           class="-mx-4 flex flex-wrap items-center justify-center gap-4 xl:gap-11">
@@ -2964,7 +2990,7 @@
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- ====== Brands Section End -->
 
     <!-- ====== Footer Section Start -->
@@ -3573,7 +3599,6 @@
     slides[currentSlide].classList.remove("hidden");
   }, 2000); // 2 seconds per slide
 </script>
-
   </body>
 
 </html>
