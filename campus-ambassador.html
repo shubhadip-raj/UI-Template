@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CampusLead</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="scroll-smooth">
+
+    <!-- Header will be injected here -->
+    <div id="campaignHeader"></div>
+    <div id="campaignHero"></div>
+    <div id="campaignBenefits"></div>
+    <div id="campaignTestimonials"></div>
+    <div id="campaignApplication"></div>
+    <div id="campaignFooter"></div>
+
+    <script>
+        fetch('campus-ambassador/campaignHeader.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('campaignHeader').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+
+        fetch('campus-ambassador/campaignHero.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('campaignHero').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+
+        fetch('campus-ambassador/campaignBenefits.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('campaignBenefits').innerHTML = data;
+                lucide.createIcons(); // Re-render Lucide icons after inject
+            });
+
+        fetch('campus-ambassador/campaignTestimonials.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('campaignTestimonials').innerHTML = data;
+                lucide.createIcons(); // Re-render Lucide icons after inject
+            });
+
+        fetch('campus-ambassador/campaignApplication.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('campaignApplication').innerHTML = data;
+                lucide.createIcons();
+            });
+
+        fetch('campus-ambassador/campaignFooter.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('campaignFooter').innerHTML = data;
+                lucide.createIcons();
+            });
+    </script>
+
+    <script>
+        function scrollToSection(section) {
+            const idMap = {
+                benefits: 'campaignBenefits',
+                application: 'campaignApplication',
+                testimonials: 'campaignTestimonials',
+            };
+
+            const sectionId = idMap[section];
+            const target = document.getElementById(sectionId);
+
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body>
+
+</html>

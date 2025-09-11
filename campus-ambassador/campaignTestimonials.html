@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ambassador Testimonials</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .avatar-initials {
+            width: 48px;
+            /* 12 * 4px */
+            height: 48px;
+            /* 12 * 4px */
+            border-radius: 9999px;
+            background-color: #e5e7eb;
+            /* Tailwind's gray-100 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #374151;
+            /* Tailwind gray-700 */
+            font-size: 1rem;
+            user-select: none;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .checked {
+            color: orange;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+
+<body>
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <span class="inline-block px-3 py-1 bg-gray-200 text-black rounded-full font-semibold text-sm mb-4">
+                    Success Stories
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    What Our <span class="text-blue-600">Ambassadors</span> Say
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Join thousands of successful ambassadors who have transformed their careers and achieved their
+                    dreams
+                    through our program.
+                </p>
+            </div>
+
+            <!-- Testimonial Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Testimonial 1 -->
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-lg transition-all duration-300">
+                    <div class="relative mb-4">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <i data-lucide="quote" class="absolute -top-2 -left-2 w-8 h-8 text-blue-200"></i>
+                        <p class="text-gray-700 leading-relaxed pl-6">
+                            "The ambassador program completely transformed my college experience. I developed leadership
+                            skills, built an amazing network, and landed my dream internship at Google!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="https://i.pravatar.cc/60?img=14" alt="Sarah Chen"
+                                class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900 text-sm">Sarah Chen</p>
+                            <p class="text-xs text-gray-600">Computer Science, Stanford</p>
+                            <span
+                                class="inline-block mt-1 px-2 py-0.5 border border-gray-300 rounded-full text-xs text-gray-700">
+                                Now at Google
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-lg transition-all duration-300">
+                    <div class="flex items-start gap-1 mb-4">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+
+                    <div class="relative mb-4">
+                        <i data-lucide="quote" class="absolute -top-2 -left-2 w-8 h-8 text-blue-200"></i>
+                        <p class="text-gray-700 leading-relaxed pl-6">
+                            "Being an ambassador taught me how to communicate effectively, manage projects, and lead
+                            teams.
+                            These skills were invaluable during my interviews at top tech companies."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="https://i.pravatar.cc/60?img=11" alt="Marcus Rodriguez"
+                                class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900 text-sm">Marcus Rodriguez</p>
+                            <p class="text-xs text-gray-600">Business Administration, MIT</p>
+                            <span
+                                class="inline-block mt-1 px-2 py-0.5 border border-gray-300 rounded-full text-xs text-gray-700">
+                                Now at Microsoft
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-lg transition-all duration-300">
+                    <div class="flex items-start gap-1 mb-4">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+
+                    <div class="relative mb-4">
+                        <i data-lucide="quote" class="absolute -top-2 -left-2 w-8 h-8 text-blue-200"></i>
+                        <p class="text-gray-700 leading-relaxed pl-6">
+                            "The program offered incredible opportunities to work on real campaigns, attend exclusive
+                            events, and connect with industry professionals. It opened so many doors!"
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="https://i.pravatar.cc/60?img=3" alt="Emily Johnson"
+                                class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900 text-sm">Emily Johnson</p>
+                            <p class="text-xs text-gray-600">Marketing, UCLA</p>
+                            <span
+                                class="inline-block mt-1 px-2 py-0.5 border border-gray-300 rounded-full text-xs text-gray-700">
+                                Now at Meta
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-lg transition-all duration-300">
+                    <div class="flex items-start gap-1 mb-4">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+
+                    <div class="relative mb-4">
+                        <i data-lucide="quote" class="absolute -top-2 -left-2 w-8 h-8 text-blue-200"></i>
+                        <p class="text-gray-700 leading-relaxed pl-6">
+                            "What I loved most was the mentorship and continuous learning opportunities. The program
+                            helped
+                            me grow both personally and professionally."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="https://i.pravatar.cc/60?img=4" alt="David Park"
+                                class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900 text-sm">David Park</p>
+                            <p class="text-xs text-gray-600">Engineering, Carnegie Mellon</p>
+                            <span
+                                class="inline-block mt-1 px-2 py-0.5 border border-gray-300 rounded-full text-xs text-gray-700">
+                                Now at Apple
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-lg transition-all duration-300">
+                    <div class="flex items-start gap-1 mb-4">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+
+                    <div class="relative mb-4">
+                        <i data-lucide="quote" class="absolute -top-2 -left-2 w-8 h-8 text-blue-200"></i>
+                        <p class="text-gray-700 leading-relaxed pl-6">
+                            "The ambassador program was the highlight of my college years. I gained confidence, made
+                            lifelong friends, and learned skills that I use every day in my career."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="https://i.pravatar.cc/60?img=5" alt="Aisha Patel"
+                                class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900 text-sm">Aisha Patel</p>
+                            <p class="text-xs text-gray-600">Data Science, UC Berkeley</p>
+                            <span
+                                class="inline-block mt-1 px-2 py-0.5 border border-gray-300 rounded-full text-xs text-gray-700">
+                                Now at Amazon
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-lg transition-all duration-300">
+                    <div class="flex items-start gap-1 mb-4">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+
+                    <div class="relative mb-4">
+                        <i data-lucide="quote" class="absolute -top-2 -left-2 w-8 h-8 text-blue-200"></i>
+                        <p class="text-gray-700 leading-relaxed pl-6">
+                            "This program gave me the competitive edge I needed. The leadership experience and
+                            professional
+                            network I built were instrumental in landing my dream job."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="https://i.pravatar.cc/60?img=7" alt="James Wilson"
+                                class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900 text-sm">James Wilson</p>
+                            <p class="text-xs text-gray-600">Finance, Wharton</p>
+                            <span
+                                class="inline-block mt-1 px-2 py-0.5 border border-gray-300 rounded-full text-xs text-gray-700">
+                                Now at Goldman Sachs
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">10K+</div>
+                    <div class="text-sm text-gray-600">Active Ambassadors</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">500+</div>
+                    <div class="text-sm text-gray-600">Partner Universities</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">95%</div>
+                    <div class="text-sm text-gray-600">Job Placement Rate</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">$2M+</div>
+                    <div class="text-sm text-gray-600">Scholarships Awarded</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Avatar initials script (optional usage, no avatars currently use it)
+        const avatars = document.querySelectorAll('.avatar-initials');
+        avatars.forEach(avatar => {
+            const fullName = avatar.getAttribute('data-name');
+            if (fullName) {
+                const names = fullName.split(' ');
+                let initials = '';
+                for (let i = 0; i < Math.min(2, names.length); i++) {
+                    if (names[i].length > 0) {
+                        initials += names[i][0].toUpperCase();
+                    }
+                }
+                avatar.textContent = initials;
+            }
+        });
+    </script>
+</body>
+
+</html>

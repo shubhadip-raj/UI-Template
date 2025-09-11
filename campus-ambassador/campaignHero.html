@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>College Ambassador Program</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom animation keyframes to mimic pulse-glow and float */
+    @keyframes pulse-glow {
+      0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 8px rgba(59, 130, 246, 0.7);
+      }
+      50% {
+        opacity: 0.7;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 1);
+      }
+    }
+    .animate-pulse-glow {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Background gradient (replicating bg-gradient-hero) */
+    .bg-gradient-hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    }
+  </style>
+</head>
+<body class="scroll-smooth bg-gradient-hero">
+
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <!-- Background geometric shapes -->
+    <div
+      class="absolute inset-0 opacity-10 bg-cover bg-center"
+      style="background-image: url('../assets/images/campus/geometric-bg.jpg');"
+    ></div>
+
+    <!-- Floating geometric elements -->
+    <div class="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full animate-float"></div>
+    <div
+      class="absolute top-40 right-20 w-16 h-16 bg-blue-600/30 transform rotate-45 animate-float"
+      style="animation-delay: 2s;"
+    ></div>
+    <div
+      class="absolute bottom-40 left-20 w-12 h-12 bg-blue-400/25 rounded-full animate-float"
+      style="animation-delay: 4s;"
+    ></div>
+
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <!-- Animated badge -->
+        <div class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-medium text-blue-400 mb-8 animate-pulse-glow">
+          🚀 Join the Future of Campus Leadership
+        </div>
+
+        <!-- Main heading -->
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          COLLEGE AMBASSADOR PROGRAM
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-xl md:text-2xl text-white/80 mb-4">It's more than a role -</p>
+        <p class="text-xl md:text-2xl font-semibold text-white mb-8">
+          It's your stage to learn, lead and leave a mark!
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <button
+            onclick="scrollToSection('application')"
+            class="text-lg px-8 py-6 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition animate-pulse-glow"
+          >
+            Apply Now
+          </button>
+          <button
+            onclick="alert('Learn More clicked!');"
+            class="text-lg px-8 py-6 border-2 border-blue-400 text-blue-400 rounded-lg hover:bg-blue-600 hover:text-white transition"
+          >
+            Learn More
+          </button>
+        </div>
+
+        <!-- Hero illustration -->
+        <div class="relative">
+          <img
+            src="../assets/images/campus/hero-illustration.jpg"
+            alt="College Ambassador Illustration"
+            class="mx-auto max-w-md md:max-w-lg opacity-90 animate-float"
+          />
+        </div>
+
+        <!-- Tagline -->
+        <div class="mt-12">
+          <p class="text-lg md:text-xl font-medium text-white">
+            Learn, Inspire, Represent, Grow <span class="font-semibold text-blue-400">#LeadWithTech</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
