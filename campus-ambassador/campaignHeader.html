@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>CampusLead</title>
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="scroll-smooth">
 
   <!-- Header -->
@@ -13,9 +16,8 @@
       <div class="flex items-center justify-between h-16">
 
         <!-- Logo -->
-        <div class="flex items-center space-x-2">
+        <!-- <div class="flex items-center space-x-2">
           <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <!-- Replace with actual Lucide icon if needed -->
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M16 21v-2a4 4 0 00-3-3.87M12 3a4 4 0 100 8 4 4 0 000-8z" />
               <path d="M6 21v-2a4 4 0 013-3.87" />
@@ -23,30 +25,46 @@
           </div>
           <span class="text-xl font-bold text-gray-800">CampusLead</span>
           <span class="hidden sm:inline-flex bg-gray-200 text-xs px-2 py-0.5 rounded-full">Ambassador Program</span>
-        </div>
+        </div> -->
 
+        <div class="w-60 max-w-full px-4">
+          <a href="index.html" class="navbar-logo block w-full py-5">
+            <img src="assets/images/logo/jb_logo.png" alt="logo" class="header-logo w-full" />
+          </a>
+
+        </div>
+        <span class="text-xl font-bold">CampusLead</span>
+
+        <!-- <span class="text-xl font-bold text-gray-800">CampusLead</span> -->
+        <span class="hidden sm:inline-flex bg-gray-200 text-xs px-2 py-0.5 rounded-full">Ambassador Program</span>
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center space-x-8">
-          <button onclick="scrollToSection('benefits')" class="text-gray-800 hover:text-blue-600 transition-colors flex items-center gap-1">
+          <button onclick="scrollToSection('benefits')"
+            class="text-gray-800 hover:text-blue-600 transition-colors flex items-center gap-1">
             🏆 Benefits
           </button>
-          <button onclick="scrollToSection('application')" class="text-gray-800 hover:text-blue-600 transition-colors flex items-center gap-1">
+          <button onclick="scrollToSection('application')"
+            class="text-gray-800 hover:text-blue-600 transition-colors flex items-center gap-1">
             🎯 Apply
           </button>
-          <button onclick="scrollToSection('testimonials')" class="text-gray-800 hover:text-blue-600 transition-colors flex items-center gap-1">
+          <button onclick="scrollToSection('testimonials')"
+            class="text-gray-800 hover:text-blue-600 transition-colors flex items-center gap-1">
             👥 Stories
           </button>
-          <button onclick="scrollToSection('application')" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition">
+          <button onclick="scrollToSection('application')"
+            class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition">
             Get Started
           </button>
         </nav>
 
         <!-- Mobile Menu Button -->
         <button id="menuToggle" class="md:hidden p-2">
-          <svg id="menuIcon" class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg id="menuIcon" class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
             <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <svg id="closeIcon" class="w-6 h-6 text-gray-800 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg id="closeIcon" class="w-6 h-6 text-gray-800 hidden" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
             <path d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
@@ -55,16 +73,20 @@
       <!-- Mobile Menu -->
       <div id="mobileMenu" class="hidden md:hidden py-4 border-t border-gray-200">
         <nav class="flex flex-col space-y-4">
-          <button onclick="scrollToSection('benefits')" class="text-left text-gray-800 hover:text-blue-600 flex items-center gap-2">
+          <button onclick="scrollToSection('benefits')"
+            class="text-left text-gray-800 hover:text-blue-600 flex items-center gap-2">
             🏆 Benefits
           </button>
-          <button onclick="scrollToSection('application')" class="text-left text-gray-800 hover:text-blue-600 flex items-center gap-2">
+          <button onclick="scrollToSection('application')"
+            class="text-left text-gray-800 hover:text-blue-600 flex items-center gap-2">
             🎯 Apply
           </button>
-          <button onclick="scrollToSection('testimonials')" class="text-left text-gray-800 hover:text-blue-600 flex items-center gap-2">
+          <button onclick="scrollToSection('testimonials')"
+            class="text-left text-gray-800 hover:text-blue-600 flex items-center gap-2">
             👥 Stories
           </button>
-          <button onclick="scrollToSection('application')" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 w-fit">
+          <button onclick="scrollToSection('application')"
+            class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 w-fit">
             Get Started
           </button>
         </nav>
@@ -101,4 +123,5 @@
     });
   </script>
 </body>
+
 </html>
